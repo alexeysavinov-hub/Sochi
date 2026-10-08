@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Юна Aqua Life — Аква</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#EEF3F2;color:#0E3640;font-family:'Golos Text',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0E3640;text-decoration:none;transition:color .3s}a:hover{color:#2A7E86}
+*{box-sizing:border-box}img{display:block}input,select,button{font-family:inherit}
+::selection{background:#6FC3BC;color:#0E3640}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</helmet>
+
+<nav aria-label="Навигация" style="position:fixed;top:26px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:4px;padding:6px 6px 6px 20px;border-radius:999px;background:rgba(255,255,255,.66);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.85);box-shadow:0 14px 34px -16px rgba(14,54,64,.35);white-space:nowrap">
+  <a href="#top" aria-label="Юна Aqua Life" style="display:flex;margin-right:10px"><img src="img/juna-logo-dark.png" alt="Юна Aqua Life" style="height:38px;width:auto"></a>
+  <div id="aNav" style="display:flex;gap:2px;font-size:14px">
+    <a href="#water" style="padding:10px 14px;border-radius:999px;transition:background .3s" style-hover="background:rgba(14,54,64,.07)">Вода</a>
+    <a href="#ritual" style="padding:10px 14px;border-radius:999px;transition:background .3s" style-hover="background:rgba(14,54,64,.07)">Ритуал</a>
+    <a href="#rooms" style="padding:10px 14px;border-radius:999px;transition:background .3s" style-hover="background:rgba(14,54,64,.07)">Номера</a>
+    <a href="#seasons" style="padding:10px 14px;border-radius:999px;transition:background .3s" style-hover="background:rgba(14,54,64,.07)">Сезоны</a>
+    <a href="#reviews" style="padding:10px 14px;border-radius:999px;transition:background .3s" style-hover="background:rgba(14,54,64,.07)">Отзывы</a>
+  </div>
+  <a href="#booking" style="margin-left:6px;padding:12px 20px;border-radius:999px;background:#0E3640;color:#EEF3F2;font-size:14px;font-weight:500;transition:background .3s" style-hover="background:#2A7E86;color:#FFFFFF">Бронь</a>
+</nav>
+
+<section id="top" data-screen-label="01 Обложка" style="padding:14px">
+  <div style="position:relative;height:calc(100vh - 28px);min-height:640px;border-radius:32px;overflow:hidden;background:#0E3640">
+    <sc-if value="{{ heroWinter }}" hint-placeholder-val="{{ true }}"><img src="img/hero-winter.jpg" alt="Открытый бассейн отеля зимним вечером" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%"></sc-if>
+    <sc-if value="{{ heroSummer }}" hint-placeholder-val="{{ false }}"><img src="img/hero-summer.jpg" alt="Открытый бассейн отеля летом" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%"></sc-if>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,54,64,.3) 0%,rgba(14,54,64,0) 26%,rgba(14,54,64,.1) 52%,rgba(14,54,64,.72) 100%)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:clamp(24px,3.4vw,48px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px">
+      <div style="flex:1 1 480px;min-width:0;color:#FFFFFF">
+        <span style="display:inline-flex;padding:9px 16px;margin-bottom:22px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.35);font-size:13px">Эсто-Садок · Красная Поляна</span>
+        <h1 style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:300;font-size:clamp(58px,8.6vw,144px);line-height:.9;letter-spacing:-.025em">Жизнь<br><em style="font-weight:300">в тёплой воде</em></h1>
+        <p style="margin:24px 0 0;max-width:44ch;font-size:17px;line-height:1.6;color:rgba(255,255,255,.92);text-wrap:pretty">Аква- и банный отель на 37 номеров. Два бассейна, хаммам и сауна включены в проживание.</p>
+      </div>
+      <sc-if value="{{ bookingInHero }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" aria-label="Быстрое бронирование" style="flex:0 1 400px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:16px;border-radius:28px;background:rgba(255,255,255,.72);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border:1px solid rgba(255,255,255,.9);box-shadow:0 30px 60px -30px rgba(14,54,64,.55)">
+          <p style="grid-column:1/-1;margin:4px 8px 6px;font-family:'Ysabeau Office','Optima',sans-serif;font-size:26px;line-height:1.1">Ваши даты</p>
+          <label style="display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:18px;background:#FFFFFF;cursor:pointer;min-width:0"><span style="font-size:12px;color:#4B676D">Заезд</span><input type="date" value="{{ fIn }}" onChange="{{ setIn }}" style="border:0;padding:0;background:transparent;color:#0E3640;font:500 15px 'Golos Text',sans-serif;outline:none;width:100%;min-width:0"></label>
+          <label style="display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:18px;background:#FFFFFF;cursor:pointer;min-width:0"><span style="font-size:12px;color:#4B676D">Выезд</span><input type="date" value="{{ fOut }}" onChange="{{ setOut }}" style="border:0;padding:0;background:transparent;color:#0E3640;font:500 15px 'Golos Text',sans-serif;outline:none;width:100%;min-width:0"></label>
+          <label style="grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:#FFFFFF;cursor:pointer"><span style="font-size:12px;color:#4B676D">Гостей</span><select value="{{ gs }}" onChange="{{ setGs }}" style="border:0;padding:0;background:transparent;color:#0E3640;font:500 15px 'Golos Text',sans-serif;outline:none;cursor:pointer"><option value="1">1 гость</option><option value="2">2 гостя</option><option value="3">3 гостя</option><option value="4">4 гостя</option><option value="5">5 гостей</option><option value="6">6 гостей</option></select></label>
+          <button type="submit" style="grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:10px;padding:16px;border:0;border-radius:999px;background:#0E3640;color:#EEF3F2;font-size:15px;font-weight:500;cursor:pointer;transition:background .3s" style-hover="background:#2A7E86">Узнать цену в WhatsApp</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ heroButton }}" hint-placeholder-val="{{ false }}"><a href="#booking" style="padding:17px 28px;border-radius:999px;background:#FFFFFF;color:#0E3640;font-size:15px;font-weight:500;transition:background .3s" style-hover="background:#D7ECE9;color:#0E3640">Забронировать</a></sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="water" data-screen-label="02 Вода" style="padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px) 0">
+  <div style="max-width:1320px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-bottom:clamp(32px,4vw,56px)">
+      <div><span style="display:inline-flex;padding:8px 14px;margin-bottom:20px;border-radius:999px;background:#D7ECE9;font-size:13px">Аква-комплекс · включено</span><h2 style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:300;font-size:clamp(46px,5.6vw,88px);line-height:.95;letter-spacing:-.02em">Вода и пар —<br><em>по градусам</em></h2></div>
+      <p style="margin:0;max-width:40ch;font-size:16px;line-height:1.6;color:#4B676D;text-wrap:pretty">С 7:00 до 22:00 для всех гостей, без записи. Халаты и полотенца — без доплаты.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">
+      <div data-reveal style="display:flex;flex-direction:column;justify-content:space-between;gap:36px;min-height:300px;padding:26px;border-radius:28px;background:linear-gradient(165deg,#FFFFFF 30%,#CFE9E6 100%)"><span style="align-self:flex-start;padding:6px 12px;border-radius:999px;background:rgba(14,54,64,.07);font-size:12px">01</span><p style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:200;font-size:clamp(64px,5.4vw,92px);line-height:.9;letter-spacing:-.05em">28–30°</p><div><p style="margin:0 0 4px;font-size:17px;font-weight:500">Крытый бассейн</p><p style="margin:0;font-size:14px;color:#4B676D">20 метров, глубина до 1,8 м</p></div></div>
+      <div data-reveal data-delay="80" style="display:flex;flex-direction:column;justify-content:space-between;gap:36px;min-height:300px;padding:26px;border-radius:28px;background:linear-gradient(165deg,#FFFFFF 30%,#DDEFEA 100%)"><span style="align-self:flex-start;padding:6px 12px;border-radius:999px;background:rgba(14,54,64,.07);font-size:12px">02</span><p style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:200;font-size:clamp(64px,5.4vw,92px);line-height:.9;letter-spacing:-.05em">32°</p><div><p style="margin:0 0 4px;font-size:17px;font-weight:500">Открытый бассейн</p><p style="margin:0;font-size:14px;color:#4B676D">круглый год, зимой — под снегом</p></div></div>
+      <div data-reveal data-delay="160" style="display:flex;flex-direction:column;justify-content:space-between;gap:36px;min-height:300px;padding:26px;border-radius:28px;background:linear-gradient(165deg,#FFFFFF 30%,#F1E6DA 100%)"><span style="align-self:flex-start;padding:6px 12px;border-radius:999px;background:rgba(14,54,64,.07);font-size:12px">03</span><p style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:200;font-size:clamp(64px,5.4vw,92px);line-height:.9;letter-spacing:-.05em">60°</p><div><p style="margin:0 0 4px;font-size:17px;font-weight:500">Хаммам</p><p style="margin:0;font-size:14px;color:#4B676D">мягкий пар и тёплый мрамор</p></div></div>
+      <div data-reveal data-delay="240" style="display:flex;flex-direction:column;justify-content:space-between;gap:36px;min-height:300px;padding:26px;border-radius:28px;background:linear-gradient(165deg,#FFFFFF 30%,#EED8C6 100%)"><span style="align-self:flex-start;padding:6px 12px;border-radius:999px;background:rgba(14,54,64,.07);font-size:12px">04</span><p style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:200;font-size:clamp(64px,5.4vw,92px);line-height:.9;letter-spacing:-.05em">90°</p><div><p style="margin:0 0 4px;font-size:17px;font-weight:500">Сауна</p><p style="margin:0;font-size:14px;color:#4B676D">сухой жар и обливная бочка</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ritual" data-screen-label="03 Ритуал" style="padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px) 0">
+  <div style="max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,72px);align-items:center">
+    <div data-reveal style="position:relative;flex:1 1 440px;aspect-ratio:4/5;max-height:760px;border-radius:32px;overflow:hidden;background:#D7ECE9">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="1"><img src="{{ st.img }}" alt="{{ st.title }}" style="{{ st.imgStyle }}"></sc-for>
+      <span style="position:absolute;left:18px;bottom:18px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:13px;font-weight:500">Шаг {{ stepN }} из 5</span>
+    </div>
+    <div data-reveal data-delay="120" style="flex:1 1 420px;min-width:0">
+      <span style="display:inline-flex;padding:8px 14px;margin-bottom:20px;border-radius:999px;background:#D7ECE9;font-size:13px">Банный ритуал</span>
+      <h2 style="margin:0 0 clamp(28px,3vw,40px);font-family:'Ysabeau Office','Optima',sans-serif;font-weight:300;font-size:clamp(46px,5.2vw,80px);line-height:.95;letter-spacing:-.02em">Пять шагов<br><em>к полному покою</em></h2>
+      <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+          <li><button type="button" onClick="{{ st.pick }}" style="{{ st.rowStyle }}">
+            <span style="{{ st.numStyle }}">{{ st.n }}</span>
+            <span style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-family:'Ysabeau Office','Optima',sans-serif;font-size:26px;line-height:1.1">{{ st.title }}</span><sc-if value="{{ st.active }}" hint-placeholder-val="{{ false }}"><span style="font-size:15px;line-height:1.55;color:#4B676D">{{ st.desc }}</span></sc-if></span>
+          </button></li>
+        </sc-for>
+      </ol>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:24px">
+        <div style="flex:1;height:3px;border-radius:3px;background:rgba(14,54,64,.12);overflow:hidden"><div style="{{ progStyle }}"></div></div>
+        <button type="button" onClick="{{ stepPrev }}" aria-label="Предыдущий шаг" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(14,54,64,.2);background:#FFFFFF;color:#0E3640;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s" style-hover="background:#0E3640;color:#EEF3F2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></button>
+        <button type="button" onClick="{{ stepNext }}" aria-label="Следующий шаг" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(14,54,64,.2);background:#FFFFFF;color:#0E3640;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s" style-hover="background:#0E3640;color:#EEF3F2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+      </div>
+      <p style="margin:18px 0 0;font-size:13px;color:#4B676D">Порядок — рекомендация: слушайте себя и пейте больше воды.</p>
+    </div>
+  </div>
+</section>
+
+<section id="rooms" data-screen-label="04 Номера" style="padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px) 0">
+  <div style="max-width:1320px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-bottom:clamp(32px,4vw,52px)">
+      <div><span style="display:inline-flex;padding:8px 14px;margin-bottom:20px;border-radius:999px;background:#D7ECE9;font-size:13px">37 номеров · 5 категорий</span><h2 style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:300;font-size:clamp(46px,5.6vw,88px);line-height:.95;letter-spacing:-.02em">Номер под<br><em>вашу компанию</em></h2></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;color:#4B676D;padding-left:6px">Кто едет?</span><div style="display:flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:999px;background:#FFFFFF;box-shadow:0 10px 30px -18px rgba(14,54,64,.35)"><sc-for list="{{ whoTabs }}" as="wt" hint-placeholder-count="4"><button type="button" onClick="{{ wt.pick }}" style="{{ wt.style }}">{{ wt.label }}</button></sc-for></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:16px">
+      <sc-for list="{{ rooms }}" as="r" hint-placeholder-count="5">
+        <article style="{{ r.cardStyle }}">
+          <div style="aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#D7ECE9"><img src="{{ r.img }}" alt="{{ r.name }}" style="width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)"></div>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:18px 10px 8px">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h3 style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:400;font-size:28px;line-height:1.05">{{ r.name }}</h3><sc-if value="{{ r.fit }}" hint-placeholder-val="{{ false }}"><span style="flex:none;padding:6px 12px;border-radius:999px;background:#6FC3BC;font-size:12px;font-weight:500">Подходит</span></sc-if></div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:13px"><span style="padding:6px 12px;border-radius:999px;background:#EEF3F2">{{ r.area }}</span><span style="padding:6px 12px;border-radius:999px;background:#EEF3F2">{{ r.guests }}</span></div>
+            <p style="margin:0;font-size:15px;line-height:1.55;color:#4B676D;text-wrap:pretty">{{ r.desc }}</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid rgba(14,54,64,.1)"><span style="font-size:14px;color:#4B676D">от <span style="font-family:'Ysabeau Office','Optima',sans-serif;font-size:26px;color:#0E3640">{{ r.price }} ₽</span> / ночь</span><a href="#booking" style="padding:11px 18px;border-radius:999px;background:#0E3640;color:#EEF3F2;font-size:14px;font-weight:500;transition:background .3s" style-hover="background:#2A7E86;color:#FFFFFF">Выбрать</a></div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="seasons" data-screen-label="05 Сезоны" style="padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px) 0">
+  <div data-reveal style="position:relative;max-width:1320px;margin:0 auto;min-height:clamp(540px,58vw,720px);border-radius:36px;overflow:hidden;background:#0E3640;color:#FFFFFF;display:flex;align-items:flex-end">
+    <img src="img/cablecar.jpg" alt="Канатная дорога зимой" style="{{ winImgStyle }}">
+    <img src="img/run.jpg" alt="Горная тропа летом" style="{{ sumImgStyle }}">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,54,64,.15) 0%,rgba(14,54,64,0) 35%,rgba(14,54,64,.7) 100%)"></div>
+    <div style="position:relative;width:100%;padding:clamp(24px,3.4vw,48px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px">
+      <div style="flex:1 1 420px;min-width:0">
+        <div style="display:inline-flex;gap:4px;padding:5px;margin-bottom:24px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.3)"><button type="button" onClick="{{ setWinter }}" style="{{ tWin }}">Зима</button><button type="button" onClick="{{ setSummer }}" style="{{ tSum }}">Лето</button></div>
+        <h2 style="margin:0;max-width:12ch;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:300;font-size:clamp(46px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;text-wrap:balance">{{ seasonTitle }}</h2>
+      </div>
+      <ul style="flex:0 1 420px;min-width:0;margin:0;padding:10px 24px;list-style:none;border-radius:26px;background:rgba(255,255,255,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.3)">
+        <sc-for list="{{ seasonPoints }}" as="p" hint-placeholder-count="3"><li style="display:flex;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:16px;line-height:1.5"><span aria-hidden="true" style="flex:none;width:7px;height:7px;border-radius:50%;background:#6FC3BC;transform:translateY(-2px)"></span>{{ p.t }}</li></sc-for>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" data-screen-label="06 Отзывы" style="padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px) 0">
+  <div style="position:relative;max-width:1320px;margin:0 auto;border-radius:36px;overflow:hidden;padding:clamp(40px,6vw,88px) clamp(20px,4vw,56px);background:#0E3640;color:#FFFFFF">
+    <img src="img/pool-night.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(14,54,64,.42)"></div>
+    <div style="position:relative">
+      <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(32px,4vw,56px)"><h2 style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:300;font-size:clamp(46px,5.6vw,88px);line-height:.95;letter-spacing:-.02em">Что говорят<br><em>наши гости</em></h2><span style="padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.3);font-size:14px">Яндекс Карты · 4,6 из 5</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px">
+        <figure data-reveal style="margin:0;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:28px;border-radius:26px;background:rgba(14,54,64,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.25)"><blockquote style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-size:21px;line-height:1.45;text-wrap:pretty">«Вечером сидеть в тёплом открытом бассейне, когда вокруг снег и горы в огнях, — ради этого стоило ехать.»</blockquote><figcaption style="font-size:14px;color:rgba(255,255,255,.85)">Анна и Сергей · январь</figcaption></figure>
+        <figure data-reveal data-delay="100" style="margin:0;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:28px;border-radius:26px;background:rgba(14,54,64,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.25)"><blockquote style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-size:21px;line-height:1.45;text-wrap:pretty">«Брали апартаменты на семью из пяти человек: своя кухня, две спальни, дети весь день в бассейне.»</blockquote><figcaption style="font-size:14px;color:rgba(255,255,255,.85)">Мария · март</figcaption></figure>
+        <figure data-reveal data-delay="200" style="margin:0;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:28px;border-radius:26px;background:rgba(14,54,64,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.25)"><blockquote style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-size:21px;line-height:1.45;text-wrap:pretty">«Хаммам и сауна после катания — отдельное удовольствие. Номер тихий, с лоджией на горы.»</blockquote><figcaption style="font-size:14px;color:rgba(255,255,255,.85)">Дмитрий · февраль</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offers" data-screen-label="07 Предложения" style="padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px) 0">
+  <div style="max-width:1320px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-bottom:clamp(32px,4vw,52px)"><h2 style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:300;font-size:clamp(46px,5.6vw,88px);line-height:.95;letter-spacing:-.02em">Предложения<br><em>сезона</em></h2><p style="margin:0;max-width:36ch;font-size:16px;line-height:1.6;color:#4B676D">Сеанс хаммама — в подарок при прямом бронировании.</p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+      <sc-for list="{{ offers }}" as="o" hint-placeholder-count="4">
+        <a data-reveal href="#booking" style="display:flex;flex-direction:column;padding:10px;border-radius:28px;background:#FFFFFF;color:#0E3640;transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s ease" style-hover="transform:translateY(-6px);box-shadow:0 40px 60px -40px rgba(14,54,64,.5);color:#0E3640">
+          <div style="aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#D7ECE9"><img src="{{ o.img }}" alt="{{ o.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px 10px 10px"><span style="padding:6px 12px;border-radius:999px;background:#D7ECE9;font-size:12px;font-weight:500">{{ o.term }}</span><h3 style="margin:0;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:400;font-size:27px;line-height:1.05">{{ o.name }}</h3><p style="margin:0;font-size:15px;line-height:1.55;color:#4B676D;text-wrap:pretty">{{ o.desc }}</p></div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="booking" data-screen-label="08 Бронирование" style="padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px)">
+  <div data-reveal style="max-width:1320px;margin:0 auto;border-radius:36px;background:#D7ECE9;padding:clamp(28px,5vw,72px);display:flex;flex-wrap:wrap;gap:32px 56px;align-items:center;justify-content:space-between">
+    <div style="flex:1 1 380px;min-width:0"><span style="display:inline-flex;padding:8px 14px;margin-bottom:20px;border-radius:999px;background:#FFFFFF;font-size:13px">Бронирование</span><h2 style="margin:0 0 18px;font-family:'Ysabeau Office','Optima',sans-serif;font-weight:300;font-size:clamp(44px,5vw,80px);line-height:.95;letter-spacing:-.02em">Подберём номер<br><em>на ваши даты</em></h2><p style="margin:0;max-width:40ch;font-size:16px;line-height:1.6;color:#36555B">Ответим в WhatsApp с ценой. Сеанс хаммама — в подарок при прямом бронировании.</p></div>
+    <form onSubmit="{{ submit }}" aria-label="Бронирование" style="flex:1 1 460px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px;padding:10px;border-radius:30px;background:#FFFFFF;box-shadow:0 30px 60px -40px rgba(14,54,64,.45)">
+      <label style="display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:20px;background:#EEF3F2;cursor:pointer;min-width:0"><span style="font-size:12px;color:#4B676D">Заезд</span><input type="date" value="{{ fIn }}" onChange="{{ setIn }}" style="border:0;padding:0;background:transparent;color:#0E3640;font:500 15px 'Golos Text',sans-serif;outline:none;width:100%;min-width:0"></label>
+      <label style="display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:20px;background:#EEF3F2;cursor:pointer;min-width:0"><span style="font-size:12px;color:#4B676D">Выезд</span><input type="date" value="{{ fOut }}" onChange="{{ setOut }}" style="border:0;padding:0;background:transparent;color:#0E3640;font:500 15px 'Golos Text',sans-serif;outline:none;width:100%;min-width:0"></label>
+      <label style="display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:20px;background:#EEF3F2;cursor:pointer;min-width:0"><span style="font-size:12px;color:#4B676D">Гостей</span><select value="{{ gs }}" onChange="{{ setGs }}" style="border:0;padding:0;background:transparent;color:#0E3640;font:500 15px 'Golos Text',sans-serif;outline:none;cursor:pointer;width:100%"><option value="1">1 гость</option><option value="2">2 гостя</option><option value="3">3 гостя</option><option value="4">4 гостя</option><option value="5">5 гостей</option><option value="6">6 гостей</option></select></label>
+      <button type="submit" style="grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:10px;padding:18px;border:0;border-radius:999px;background:#0E3640;color:#EEF3F2;font-size:15px;font-weight:500;cursor:pointer;transition:background .3s" style-hover="background:#2A7E86">Отправить запрос<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+    </form>
+  </div>
+</section>
+
+<footer id="contacts" data-screen-label="09 Контакты" style="background:#0E3640;color:#EEF3F2;border-radius:40px 40px 0 0;padding:clamp(56px,7vw,96px) clamp(20px,4vw,56px) 28px">
+  <div style="max-width:1320px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:40px;padding-bottom:clamp(40px,5vw,64px);font-size:15px;line-height:1.7">
+      <div><img src="img/juna-logo-light.png" alt="Юна Aqua Life" style="height:64px;width:auto;margin-bottom:14px"><p style="margin:0;max-width:30ch;color:rgba(238,243,242,.75)">Аква- и банный отель на 37 номеров в Эсто-Садке, Красная Поляна.</p></div>
+      <div style="display:flex;flex-direction:column"><p style="margin:0 0 10px;font-size:13px;color:#6FC3BC">Адрес</p><span>Эсто-Садок,</span><span>ул. Переселенческая, 11/1</span><span style="color:rgba(238,243,242,.75)">Ресепшен 9:00–22:00</span></div>
+      <div style="display:flex;flex-direction:column"><p style="margin:0 0 10px;font-size:13px;color:#6FC3BC">Связь</p><a href="tel:+79186195595" style="color:#EEF3F2">+7 918 619-55-95</a><a href="mailto:booking@sochi.juna-life.ru" style="color:#EEF3F2">booking@sochi.juna-life.ru</a><a href="https://t.me/junasochi" style="color:#EEF3F2">Telegram @junasochi</a></div>
+      <form onSubmit="{{ prevent }}" style="display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:13px;color:#6FC3BC">Рассылка</p><p style="margin:0;color:rgba(238,243,242,.75)">Редкие письма о сезонах и банных вечерах.</p><div style="display:flex;padding:5px;border-radius:999px;background:rgba(238,243,242,.1);border:1px solid rgba(238,243,242,.2)"><input type="email" placeholder="Ваш email" aria-label="Email" style="flex:1;min-width:0;border:0;padding:10px 14px;background:transparent;color:#EEF3F2;font:400 14px 'Golos Text',sans-serif;outline:none"><button type="submit" style="padding:10px 18px;border:0;border-radius:999px;background:#6FC3BC;color:#0E3640;font-size:14px;font-weight:500;cursor:pointer">OK</button></div></form>
+    </div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding-top:20px;border-top:1px solid rgba(238,243,242,.16);font-size:13px;color:rgba(238,243,242,.75)"><span>© 2026 Юна Aqua Life · ООО «УСПЕХ»</span><div style="display:flex;flex-wrap:wrap;gap:20px"><a href="#" style="color:rgba(238,243,242,.85)">Конфиденциальность</a><a href="#" style="color:rgba(238,243,242,.85)">Правила проживания</a><a href="https://wa.me/79186195595" style="color:rgba(238,243,242,.85)">WhatsApp</a></div></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;hero&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;winter&quot;,&quot;summer&quot;],&quot;default&quot;:&quot;winter&quot;,&quot;tsType&quot;:&quot;'winter' | 'summer'&quot;,&quot;section&quot;:&quot;Обложка&quot;},&quot;bookingInHero&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Обложка&quot;}}">
+class Component extends DCLogic {
+  state = { step: 0, who: 0, season: 'winter', fIn: '2026-12-20', fOut: '2026-12-24', gs: '2' };
+  _E = 'cubic-bezier(.2,.7,.2,1)';
+  _steps = [
+    ['Тёплая вода', 'Начните в крытом бассейне: 28–30 °C и двадцать метров, чтобы разогреться и поплавать.', 'img/pool-indoor.jpg'],
+    ['Мягкий пар', 'Хаммам при 60 °C и тёплый мрамор — тело расслабляется постепенно.', 'img/hammam.jpg'],
+    ['Жар и холод', 'Сухой жар сауны 90 °C, а затем — обливная бочка.', 'img/banya.jpg'],
+    ['Покой', 'Комната отдыха, травяной чай с мёдом и тишина.', 'img/v-bar.jpg'],
+    ['Открытое небо', 'Финал — джакузи или открытый бассейн 32 °C. Зимой — под падающим снегом.', 'img/jacuzzi.jpg']
+  ];
+  _rooms = [
+    { name: 'Стандарт Premium', area: '20 м²', guests: 'до 2 гостей', price: '4 880', img: 'img/room-standard.jpg', desc: 'Компактный номер для двоих: на первом этаже — выход в сад, выше — балкон с видом на горы.' },
+    { name: 'Стандарт с балконом', area: '25 м²', guests: 'до 3 гостей', price: '5 900', img: 'img/v-bed.jpg', desc: 'Просторнее на пять метров, с прихожей и местом для ребёнка.' },
+    { name: 'Студио с кухней', area: '45 м²', guests: 'до 4 гостей', price: '9 800', img: 'img/v-balcony.jpg', desc: 'Полноценная кухня, обеденный стол и стиральная машина.' },
+    { name: 'Люкс', area: '45 м²', guests: 'до 5 гостей', price: '11 900', img: 'img/room-suite.jpg', desc: 'Две спальни и гостиная. Из каждой комнаты — балкон на хребет.' },
+    { name: 'Апартаменты', area: '75 м²', guests: 'до 6 гостей', price: '14 900', img: 'img/room-apart.jpg', desc: 'Две спальни и кухня-гостиная на всю семью, тишина третьего этажа.' }
+  ];
+  _who = [['Вдвоём', [0, 1, 3]], ['С ребёнком', [1, 2]], ['Семьёй', [2, 3, 4]], ['Компанией', [3, 4]]];
+  _offers = [
+    ['После 21:00', 'Банный вечер', 'Сауна, хаммам и джакузи только для вашей компании до шести человек.', 'img/banya.jpg'],
+    ['От 3 ночей', 'После склона', 'Хаммам и сауна после катания, канатная дорога — в 900 метрах.', 'img/cablecar.jpg'],
+    ['7 ночей', 'Семейные каникулы', 'Студио с кухней или апартаменты, дети весь день в тёплой воде.', 'img/valley.jpg'],
+    ['2 ночи', 'Романтический уикенд', 'Завтрак у камина и вечер в открытом бассейне.', 'img/bar-fireplace.jpg']
+  ];
+  renderVals() {
+    const s = this.state, E = this._E, hs = this.props.hero === 'summer', fit = this._who[s.who][1], inHero = this.props.bookingInHero !== false;
+    const up = (k) => (e) => this.setState({ [k]: e.target.value });
+    const stack = (on) => ({ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: on ? 1 : 0, transform: on ? 'scale(1)' : 'scale(1.06)', transition: 'opacity 1s ease, transform 2s ' + E });
+    const pill = (on, dark) => ({ padding: '10px 18px', border: 0, borderRadius: '999px', background: on ? (dark ? '#0E3640' : '#FFFFFF') : 'transparent', color: on ? (dark ? '#EEF3F2' : '#0E3640') : (dark ? '#0E3640' : '#FFFFFF'), fontSize: '14px', fontWeight: 500, cursor: 'pointer', transition: 'background .35s ease, color .35s ease' });
+    const win = s.season === 'winter';
+    return {
+      heroWinter: !hs, heroSummer: hs, bookingInHero: inHero, heroButton: !inHero,
+      steps: this._steps.map(([title, desc, img], i) => { const on = i === s.step; return { n: String(i + 1), title, desc, img, active: on, pick: () => this.setState({ step: i }), imgStyle: stack(on),
+        rowStyle: { display: 'flex', alignItems: 'flex-start', gap: '18px', width: '100%', padding: '14px 16px', border: 0, borderRadius: '22px', background: on ? '#FFFFFF' : 'transparent', boxShadow: on ? '0 20px 40px -28px rgba(14,54,64,.45)' : 'none', color: '#0E3640', textAlign: 'left', cursor: 'pointer', transition: 'background .45s ease, box-shadow .45s ease' },
+        numStyle: { flex: 'none', width: '38px', height: '38px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 500, background: on ? '#6FC3BC' : 'rgba(14,54,64,.07)', transition: 'background .45s ease' } }; }),
+      stepN: s.step + 1,
+      progStyle: { height: '100%', width: ((s.step + 1) / 5 * 100) + '%', background: '#0E3640', borderRadius: '3px', transition: 'width .8s ' + E },
+      stepPrev: () => this.setState({ step: (s.step + 4) % 5 }), stepNext: () => this.setState({ step: (s.step + 1) % 5 }),
+      whoTabs: this._who.map(([label], i) => ({ label, pick: () => this.setState({ who: i }), style: pill(i === s.who, true) })),
+      rooms: this._rooms.map((r, i) => { const ok = fit.includes(i); return { ...r, fit: ok, cardStyle: { padding: '10px', borderRadius: '28px', background: '#FFFFFF', opacity: ok ? 1 : 0.4, filter: ok ? 'none' : 'saturate(.3)', transform: ok ? 'none' : 'scale(.975)', boxShadow: ok ? '0 30px 60px -40px rgba(14,54,64,.4)' : 'none', transition: 'opacity .6s ease, filter .6s ease, transform .7s ' + E + ', box-shadow .6s ease' } }; }),
+      winImgStyle: stack(win), sumImgStyle: stack(!win), tWin: pill(win, false), tSum: pill(!win, false),
+      setWinter: () => this.setState({ season: 'winter' }), setSummer: () => this.setState({ season: 'summer' }),
+      seasonTitle: win ? 'Зимой — склон и тёплая вода' : 'Летом — тропы и горный воздух',
+      seasonPoints: (win ? ['Канатная дорога — 900 м, десять минут пешком', 'Хаммам и сауна после катания — без записи', 'Открытый бассейн 32 °C под снегом'] : ['Тропы начинаются прямо от крыльца', 'Йога по утрам в сезон', 'Тренажёрный зал с видом на горы']).map((t) => ({ t })),
+      offers: this._offers.map(([term, name, desc, img]) => ({ term, name, desc, img })),
+      fIn: s.fIn, fOut: s.fOut, gs: s.gs, setIn: up('fIn'), setOut: up('fOut'), setGs: up('gs'),
+      prevent: (e) => e.preventDefault(),
+      submit: (e) => { e.preventDefault(); const d = (v) => v.split('-').reverse().join('.'); const t = encodeURIComponent(`Здравствуйте! Хочу забронировать номер с ${d(s.fIn)} по ${d(s.fOut)}, гостей: ${s.gs}.`); window.open('https://wa.me/79186195595?text=' + t, '_blank', 'noopener'); }
+    };
+  }
+  componentDidMount() {
+    const E = this._E;
+    const io = new IntersectionObserver((es) => es.forEach((e) => { const el = e.target; if (!e.isIntersecting) { if (!el.__h && e.boundingClientRect.top > 0) { el.__h = 1; const dl = el.dataset.delay || 0; el.style.opacity = '0'; el.style.transform = 'translateY(28px) scale(.985)'; el.style.transition = `opacity 1.1s ${E} ${dl}ms, transform 1.1s ${E} ${dl}ms`; } return; } el.style.opacity = '1'; el.style.transform = 'none'; io.unobserve(el); }), { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    const scan = () => document.querySelectorAll('[data-reveal]').forEach((el) => { if (!el.__rv) { el.__rv = 1; io.observe(el); } });
+    scan(); this._mo = new MutationObserver(scan); this._mo.observe(document.body, { childList: true, subtree: true });
+    this._fit = () => { const nv = document.getElementById('aNav'); if (nv) nv.style.display = innerWidth < 900 ? 'none' : ''; };
+    addEventListener('resize', this._fit); this._fit();
+  }
+  componentWillUnmount() { removeEventListener('resize', this._fit); if (this._mo) this._mo.disconnect(); }
+}
+</script>
+</body>
+</html>

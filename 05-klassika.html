@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Юна Aqua Life — Классика</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F1EA;color:#1C2A3A;font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#1C2A3A;text-decoration:none}a:hover{color:#4A6378}
+*{box-sizing:border-box}img{display:block}input,select,button{font-family:inherit}
+::selection{background:#EFB28C;color:#1C2A3A}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes lineIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</helmet>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="Меню" style="position:fixed;inset:0;z-index:300;background:#1C2A3A;color:#F6F1EA;display:flex;flex-direction:column;padding:24px clamp(20px,5vw,64px) 40px;overflow:auto;animation:fade .5s ease both">
+    <div style="display:flex;justify-content:space-between;align-items:center"><img src="img/juna-logo-light.png" alt="Юна Aqua Life" style="height:48px;width:auto"><button type="button" onClick="{{ closeMenu }}" aria-label="Закрыть" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(246,241,234,.35);background:transparent;color:#F6F1EA;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s" style-hover="background:#F6F1EA;color:#1C2A3A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
+    <nav style="margin:auto 0;display:flex;flex-direction:column">
+      <sc-for list="{{ menu }}" as="m" hint-placeholder-count="5"><a href="{{ m.href }}" onClick="{{ closeMenu }}" style="{{ m.style }}">{{ m.name }}<span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.2em;color:#EFB28C">{{ m.n }}</span></a></sc-for>
+    </nav>
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px"><a href="tel:+79186195595" style="color:#F6F1EA">+7 918 619-55-95</a><span style="color:rgba(246,241,234,.7)">Эсто-Садок, ул. Переселенческая, 11/1</span></div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ videoOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="Видео об отеле" style="position:fixed;inset:0;z-index:310;background:rgba(14,22,32,.92);display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,64px);animation:fade .5s ease both">
+    <button type="button" onClick="{{ closeVideo }}" aria-label="Закрыть" style="position:absolute;top:20px;right:20px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(246,241,234,.35);background:transparent;color:#F6F1EA;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+    <video src="img/hero-loop.mp4" poster="img/hero-winter.jpg" controls="{{ true }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" style="width:min(1200px,100%);max-height:84vh;border-radius:6px;background:#000;animation:up .7s cubic-bezier(.2,.7,.2,1) both"></video>
+  </div>
+</sc-if>
+
+<section id="top" data-screen-label="01 Hero" style="position:relative;min-height:clamp(620px,94vh,960px);display:flex;flex-direction:column;overflow:hidden;background:#1C2A3A;color:#fff">
+  <sc-if value="{{ heroWinter }}" hint-placeholder-val="{{ true }}"><img src="img/hero-winter.jpg" alt="Открытый подогреваемый бассейн зимним вечером" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%"></sc-if>
+  <sc-if value="{{ heroSummer }}" hint-placeholder-val="{{ false }}"><img src="img/hero-summer.jpg" alt="Открытый бассейн летом" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%"></sc-if>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,42,.6) 0%,rgba(20,30,42,.12) 28%,rgba(20,30,42,.18) 60%,rgba(20,30,42,.72) 100%),linear-gradient(90deg,rgba(20,30,42,.5) 0%,rgba(20,30,42,0) 60%)"></div>
+  <header style="position:relative;z-index:5;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:24px clamp(20px,4vw,64px);border-bottom:1px solid rgba(255,255,255,.16);animation:fade 1.2s .1s both">
+    <button type="button" onClick="{{ openMenu }}" style="justify-self:start;display:inline-flex;align-items:center;gap:14px;background:transparent;border:0;padding:8px 0;color:#fff;font:500 11px 'Jost',sans-serif;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:gap .4s cubic-bezier(.2,.7,.2,1)" style-hover="gap:20px"><span style="display:flex;flex-direction:column;gap:5px"><span style="display:block;width:22px;height:1px;background:currentColor"></span><span style="display:block;width:14px;height:1px;background:currentColor"></span></span>Меню</button>
+    <a href="#top" aria-label="Юна Aqua Life" style="display:inline-flex"><img src="img/juna-logo-light.png" alt="Юна Aqua Life" style="height:clamp(44px,4vw,56px);width:auto"></a>
+    <div style="justify-self:end;display:flex;align-items:center;gap:22px;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase">
+      <a id="navPhone" href="tel:+79186195595" style="color:#fff;letter-spacing:.06em;transition:color .3s" style-hover="color:#EFB28C">+7 918 619-55-95</a>
+      <a href="#booking" style="padding:11px 20px;border:1px solid rgba(255,255,255,.55);border-radius:999px;color:#fff;transition:background .35s,color .35s" style-hover="background:#fff;color:#1C2A3A">Бронь</a>
+    </div>
+  </header>
+  <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1280px;width:100%;margin:0 auto;padding:clamp(48px,8vh,96px) clamp(20px,4vw,64px) clamp(120px,16vh,160px)">
+    <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(50px,7.4vw,112px);line-height:.98;letter-spacing:-.01em">
+      <span style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block;animation:rise 1.4s cubic-bezier(.2,.7,.2,1) .35s both">Тёплая вода,</span></span>
+      <span style="display:flex;align-items:center;gap:clamp(16px,2vw,32px);overflow:hidden;padding-bottom:.06em"><span aria-hidden="true" style="flex:none;width:clamp(60px,9vw,150px);height:1px;background:rgba(255,255,255,.7);transform-origin:left;animation:lineIn 1.4s cubic-bezier(.2,.7,.2,1) .7s both"></span><span style="display:block;animation:rise 1.4s cubic-bezier(.2,.7,.2,1) .5s both">снежные вершины</span></span>
+    </h1>
+    <p style="margin:clamp(24px,3vw,36px) 0 0;max-width:46ch;font-weight:300;font-size:clamp(15px,1.15vw,17px);line-height:1.6;color:rgba(255,255,255,.9);text-wrap:pretty;animation:fade 1.4s .95s both">Аква- и банный отель на 37 номеров в Эсто-Садке. Два бассейна, хаммам и сауна включены в проживание, канатная дорога — в 900 метрах.</p>
+    <div style="margin-top:30px;animation:fade 1.4s 1.15s both"><a href="#booking" style="display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:999px;background:#EFB28C;color:#1C2A3A;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;transition:background .35s,gap .45s cubic-bezier(.2,.7,.2,1)" style-hover="background:#fff;color:#1C2A3A;gap:18px">Забронировать<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div>
+  </div>
+  <button type="button" onClick="{{ openVideo }}" style="position:absolute;z-index:3;right:clamp(20px,4vw,64px);bottom:clamp(28px,5vh,56px);display:flex;align-items:center;gap:22px;padding:18px 18px 18px 26px;border-radius:6px;border:1px solid rgba(255,255,255,.22);background:rgba(28,42,58,.32);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;text-align:left;cursor:pointer;animation:up 1.4s cubic-bezier(.2,.7,.2,1) 1.3s both;transition:background .4s" style-hover="background:rgba(28,42,58,.55)">
+    <span style="display:flex;flex-direction:column;gap:2px;font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.1"><span>Смотреть видео</span><span style="color:rgba(255,255,255,.75)">об отеле</span></span>
+    <span style="width:52px;height:52px;border-radius:50%;background:#fff;color:#1C2A3A;display:flex;align-items:center;justify-content:center;flex:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></span>
+  </button>
+</section>
+
+<section id="about" data-screen-label="02 Отель" style="background:#5B7590;color:#fff;padding:clamp(56px,7vw,100px) clamp(20px,4vw,64px) 0">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,96px);align-items:start">
+    <div data-reveal style="padding-bottom:clamp(40px,6vw,90px)">
+      <p style="margin:0 0 18px;font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase">Аква-отель · 4★</p>
+      <h2 style="margin:0 0 24px;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4.4vw,62px);line-height:1;letter-spacing:-.01em;text-wrap:balance">Отдых, который начинается с тёплой воды</h2>
+      <p style="margin:0 0 32px;max-width:48ch;font-weight:300;font-size:16px;line-height:1.65;text-wrap:pretty">Полного крытого аква-банного комплекса нет ни у одного из соседей по улице — у нас он включён в проживание, без доплат и записи. Номера тихие, вид на горы настоящий, а во дворе зимой парит открытый бассейн.</p>
+      <a href="#water" style="display:inline-flex;align-items:center;gap:12px;padding:14px 24px;border-radius:999px;background:#EFB28C;color:#1C2A3A;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;transition:background .35s,gap .45s cubic-bezier(.2,.7,.2,1)" style-hover="background:#fff;color:#1C2A3A;gap:18px">Аква-комплекс<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div data-clip="1" style="position:relative;z-index:2;aspect-ratio:4/3;border-radius:6px;overflow:hidden;margin-bottom:clamp(-140px,-10vw,-60px);box-shadow:0 50px 90px -50px rgba(14,22,32,.7)"><img src="img/pool-indoor.jpg" alt="Крытый бассейн отеля" style="width:100%;height:100%;object-fit:cover"></div>
+  </div>
+</section>
+
+<section id="booking" data-screen-label="03 Бронирование" style="padding:clamp(100px,12vw,190px) clamp(20px,4vw,64px) clamp(48px,6vw,80px)">
+  <form data-reveal onSubmit="{{ submitBook }}" aria-label="Бронирование" style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;padding:14px;border-radius:8px;background:#fff;box-shadow:0 30px 60px -40px rgba(28,42,58,.45)">
+    <label style="flex:1 1 180px;display:flex;flex-direction:column;gap:8px;padding:14px 18px;border:1px solid rgba(28,42,58,.12);border-radius:4px;min-width:0;cursor:pointer"><span style="font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#5E6670">Заезд</span><input name="in" type="date" defaultValue="2026-12-20" style="border:0;padding:0;background:transparent;color:#1C2A3A;font:400 15px 'Jost',sans-serif;outline:none;width:100%;min-width:0"></label>
+    <label style="flex:1 1 180px;display:flex;flex-direction:column;gap:8px;padding:14px 18px;border:1px solid rgba(28,42,58,.12);border-radius:4px;min-width:0;cursor:pointer"><span style="font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#5E6670">Выезд</span><input name="out" type="date" defaultValue="2026-12-24" style="border:0;padding:0;background:transparent;color:#1C2A3A;font:400 15px 'Jost',sans-serif;outline:none;width:100%;min-width:0"></label>
+    <label style="flex:1 1 150px;display:flex;flex-direction:column;gap:8px;padding:14px 18px;border:1px solid rgba(28,42,58,.12);border-radius:4px;min-width:0;cursor:pointer"><span style="font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#5E6670">Взрослые</span><select name="ad" defaultValue="2" style="border:0;padding:0;background:transparent;color:#1C2A3A;font:400 15px 'Jost',sans-serif;outline:none;width:100%;min-width:0;cursor:pointer"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
+    <label style="flex:1 1 150px;display:flex;flex-direction:column;gap:8px;padding:14px 18px;border:1px solid rgba(28,42,58,.12);border-radius:4px;min-width:0;cursor:pointer"><span style="font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#5E6670">Дети</span><select name="ch" defaultValue="0" style="border:0;padding:0;background:transparent;color:#1C2A3A;font:400 15px 'Jost',sans-serif;outline:none;width:100%;min-width:0;cursor:pointer"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
+    <button type="submit" style="flex:1 1 200px;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px;border:0;border-radius:4px;background:#EFB28C;color:#1C2A3A;font:500 11px 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .35s,color .35s,gap .45s cubic-bezier(.2,.7,.2,1)" style-hover="background:#1C2A3A;color:#fff;gap:18px">Найти номер<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+  </form>
+  <p data-reveal style="max-width:1280px;margin:14px auto 0;font-size:12.5px;color:#5E6670;text-align:center">Запрос уйдёт администратору в WhatsApp — ответим с ценой на ваши даты. Сеанс хаммама в подарок при прямом бронировании.</p>
+</section>
+
+<section id="water" data-screen-label="04 Вода и пар" style="padding:clamp(24px,4vw,56px) clamp(20px,4vw,64px) clamp(64px,8vw,120px)">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,5vw,80px);align-items:start">
+    <div data-reveal style="max-width:440px">
+      <p style="margin:0 0 18px;font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#4A6378">Аква-комплекс</p>
+      <h2 style="margin:0 0 clamp(32px,4vw,52px);font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4.4vw,62px);line-height:1;letter-spacing:-.01em">Вода и пар —<br>каждый день</h2>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ water }}" as="w" hint-placeholder-count="5">
+          <button type="button" onClick="{{ w.pick }}" style="display:block;width:100%;text-align:left;padding:16px 0;border:0;border-bottom:1px solid rgba(28,42,58,.14);background:transparent;cursor:pointer">
+            <span style="{{ w.titleStyle }}">{{ w.name }}</span>
+            <sc-if value="{{ w.active }}" hint-placeholder-val="{{ false }}"><span style="display:block;margin-top:10px;font-weight:300;font-size:14.5px;line-height:1.6;color:#4A525C;animation:fade .6s ease both">{{ w.desc }}</span></sc-if>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+    <div data-reveal data-delay="120" style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <p style="margin:0;max-width:40ch;font-weight:300;font-size:15px;line-height:1.6;color:#4A525C;text-wrap:pretty">С 7:00 до 22:00 для всех гостей отеля. После девяти вечера баню можно забрать целиком — для своей компании до шести человек.</p>
+        <a href="#offers" style="display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border-radius:999px;background:#EFB28C;color:#1C2A3A;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;transition:background .35s" style-hover="background:#1C2A3A;color:#fff">Банный вечер</a>
+      </div>
+      <div style="position:relative;aspect-ratio:16/11;border-radius:6px;overflow:hidden;background:#1C2A3A">
+        <sc-for list="{{ water }}" as="w" hint-placeholder-count="1"><img src="{{ w.img }}" alt="{{ w.name }}" style="{{ w.imgStyle }}"></sc-for>
+        <button type="button" onClick="{{ waterPrev }}" aria-label="Назад" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:0;background:#EFB28C;color:#1C2A3A;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s" style-hover="background:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></button>
+        <button type="button" onClick="{{ waterNext }}" aria-label="Вперёд" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:0;background:#EFB28C;color:#1C2A3A;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s" style-hover="background:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+        <div style="position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:8px"><sc-for list="{{ water }}" as="w" hint-placeholder-count="5"><span style="{{ w.dotStyle }}"></span></sc-for></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="05 Видео" style="position:relative;height:clamp(380px,56vw,640px);overflow:hidden;background:#1C2A3A;color:#fff;display:flex;align-items:center;justify-content:center">
+  <img data-px="1" src="img/pool-night.jpg" alt="Бассейн отеля ночью" style="position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;will-change:transform">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(20,30,42,.38)"></div>
+  <div data-reveal style="position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center">
+    <span style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(84px,15vw,230px);line-height:.85;letter-spacing:.08em">ЮНА</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(20px,3vw,44px);letter-spacing:.42em;margin-right:-.42em">AQUA LIFE</span>
+  </div>
+  <button type="button" onClick="{{ openVideo }}" aria-label="Смотреть видео" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .4s,color .4s" style-hover="background:#fff;color:#1C2A3A"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></button>
+</section>
+
+<section id="rooms" data-screen-label="06 Номера" style="padding:clamp(64px,8vw,120px) clamp(20px,4vw,64px)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-reveal style="text-align:center;margin-bottom:clamp(36px,4.5vw,60px)">
+      <p style="margin:0 0 16px;font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#4A6378">Размещение</p>
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4.4vw,62px);line-height:1;letter-spacing:-.01em">Номера и люксы</h2>
+    </div>
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:14px">
+      <sc-for list="{{ rooms }}" as="r" hint-placeholder-count="4">
+        <article onMouseEnter="{{ r.pick }}" onClick="{{ r.pick }}" style="{{ r.cardStyle }}">
+          <img src="{{ r.img }}" alt="{{ r.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,42,0) 45%,rgba(20,30,42,.75) 100%);pointer-events:none"></div>
+          <div style="{{ r.nameStyle }}"><h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;line-height:1.05">{{ r.name }}</h3><p style="margin:8px 0 0;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.85)">от {{ r.price }} ₽ / ночь</p></div>
+          <div style="{{ r.panelStyle }}">
+            <p style="margin:0 0 8px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#EFB28C">{{ r.area }} · {{ r.guests }}</p>
+            <h3 style="margin:0 0 12px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(26px,2.2vw,32px);line-height:1.05">{{ r.name }}</h3>
+            <p style="margin:0 0 18px;font-weight:300;font-size:14px;line-height:1.55;color:rgba(255,255,255,.82)">{{ r.desc }}</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.16)"><span style="font-size:13px"><span style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#EFB28C">{{ r.price }} ₽</span> / ночь</span><a href="#booking" style="display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase">Выбрать<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+    <div data-reveal style="display:flex;justify-content:center;align-items:center;gap:22px;margin-top:32px">
+      <button type="button" onClick="{{ roomPrev }}" aria-label="Предыдущий номер" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(28,42,58,.3);background:transparent;color:#1C2A3A;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s" style-hover="background:#1C2A3A;color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></button>
+      <div style="display:flex;gap:8px"><sc-for list="{{ roomDots }}" as="d" hint-placeholder-count="5"><span style="{{ d.style }}"></span></sc-for></div>
+      <button type="button" onClick="{{ roomNext }}" aria-label="Следующий номер" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(28,42,58,.3);background:transparent;color:#1C2A3A;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s" style-hover="background:#1C2A3A;color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+    </div>
+  </div>
+</section>
+
+<section id="around" data-screen-label="07 Отель и природа" style="background:#5B7590;color:#fff;padding:clamp(56px,7vw,100px) clamp(20px,4vw,64px) 0">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-reveal style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(32px,4vw,52px)">
+      <div><p style="margin:0 0 16px;font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase">В отеле и вокруг</p><h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4.4vw,62px);line-height:1;letter-spacing:-.01em">Отель и природа<br>Красной Поляны</h2></div>
+      <a href="tel:+79186195595" style="display:inline-flex;align-items:center;gap:14px;padding:10px 22px 10px 10px;border-radius:999px;background:#fff;color:#1C2A3A;transition:transform .5s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-2px);color:#1C2A3A"><span style="width:40px;height:40px;border-radius:50%;background:#EFB28C;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#5E6670">Ресепшен 9:00–22:00</span><span style="font-size:15px">+7 918 619-55-95</span></span></a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,2.4vw,32px);align-items:start">
+      <div data-reveal style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5"><button type="button" onClick="{{ t.pick }}" style="{{ t.style }}"><span style="font-size:11px;letter-spacing:.14em;opacity:.7">{{ t.n }}</span><span>{{ t.name }}</span></button></sc-for></div>
+      <div data-reveal data-delay="100" style="background:#1C2A3A;border-radius:6px;padding:clamp(26px,3vw,40px);color:#fff;align-self:stretch;display:flex;flex-direction:column;justify-content:center">
+        <div style="{{ tabFadeStyle }}">
+          <p style="margin:0 0 14px;font-family:'Cormorant Garamond',serif;font-size:22px;color:#EFB28C">{{ tab.n }}</p>
+          <h3 style="margin:0 0 20px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(26px,2.4vw,32px);line-height:1.1">{{ tab.title }}</h3>
+          <ul style="margin:0 0 26px;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px"><sc-for list="{{ tab.points }}" as="p" hint-placeholder-count="3"><li style="display:flex;gap:12px;font-weight:300;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.86)"><span aria-hidden="true" style="flex:none;width:5px;height:5px;margin-top:8px;border-radius:50%;background:#EFB28C"></span>{{ p }}</li></sc-for></ul>
+          <a href="#booking" style="display:inline-flex;align-items:center;gap:12px;color:#fff;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:gap .4s cubic-bezier(.2,.7,.2,1)" style-hover="gap:18px;color:#EFB28C">Забронировать<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+        </div>
+      </div>
+      <div data-reveal data-delay="200" style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;margin-bottom:clamp(-80px,-6vw,-40px);z-index:2;background:#1C2A3A;box-shadow:0 50px 90px -50px rgba(14,22,32,.7)"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="1"><img src="{{ t.img }}" alt="{{ t.name }}" style="{{ t.imgStyle }}"></sc-for></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="08 Соцсети" style="padding:clamp(120px,12vw,180px) clamp(20px,4vw,64px) clamp(64px,8vw,120px);overflow:hidden">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:clamp(24px,3vw,40px)">
+    <div data-reveal style="display:flex;justify-content:center;align-items:flex-end;gap:clamp(12px,2vw,28px);width:100%"><sc-for list="{{ socialA }}" as="g" hint-placeholder-count="4"><div style="{{ g.style }}"><img src="{{ g.img }}" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.05)"></div></sc-for></div>
+    <a data-reveal href="https://t.me/junasochi" style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;color:#1C2A3A"><span style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,5.6vw,78px);line-height:1;letter-spacing:.04em;text-transform:uppercase">Мы в Telegram · @junasochi</span><span style="font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#5E6670">Фото гостей, погода на склоне и новости отеля</span></a>
+    <div data-reveal data-delay="100" style="display:flex;justify-content:center;align-items:flex-start;gap:clamp(12px,2vw,28px);width:100%"><sc-for list="{{ socialB }}" as="g" hint-placeholder-count="3"><div style="{{ g.style }}"><img src="{{ g.img }}" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.05)"></div></sc-for></div>
+  </div>
+</section>
+
+<section id="voices" data-screen-label="09 Отзывы" style="position:relative;min-height:clamp(560px,80vh,820px);display:flex;overflow:hidden;background:#1C2A3A;color:#fff">
+  <img data-px="1" src="img/yoga.jpg" alt="" style="position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;will-change:transform">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,42,.45) 0%,rgba(20,30,42,.15) 40%,rgba(20,30,42,.6) 100%)"></div>
+  <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,4vw,64px);display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+    <div data-reveal><p style="margin:0 0 16px;font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase">Отзывы</p><h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4.4vw,62px);line-height:1;letter-spacing:-.01em">Что говорят<br>наши гости</h2></div>
+    <div data-reveal data-delay="120" style="align-self:flex-end;width:min(560px,100%);background:#1C2A3A;border-radius:6px;padding:clamp(28px,3vw,40px)">
+      <p style="margin:0 0 18px;display:flex;gap:4px;color:#EFB28C;font-size:14px;letter-spacing:.1em">★★★★★</p>
+      <div style="{{ qStyle }}"><p style="margin:0 0 18px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(20px,1.8vw,26px);line-height:1.4;text-wrap:pretty">{{ qText }}</p><p style="margin:0;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">{{ qAuthor }}</p></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14)"><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)">Яндекс Карты · 4,6 из 5</span><div style="display:flex;gap:10px"><button type="button" onClick="{{ qPrev }}" aria-label="Предыдущий отзыв" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s" style-hover="background:#fff;color:#1C2A3A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></button><button type="button" onClick="{{ qNext }}" aria-label="Следующий отзыв" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s" style-hover="background:#fff;color:#1C2A3A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="offers" data-screen-label="10 Предложения" style="padding:clamp(64px,8vw,120px) clamp(20px,4vw,64px)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-reveal style="text-align:center;margin-bottom:clamp(36px,4.5vw,60px)"><p style="margin:0 0 16px;font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#4A6378">Пакеты</p><h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4.4vw,62px);line-height:1;letter-spacing:-.01em">Специальные предложения</h2></div>
+    <div data-reveal style="{{ offersGridStyle }}">
+      <sc-for list="{{ offers }}" as="o" hint-placeholder-count="4">
+        <a href="#booking" style="{{ o.style }}">
+          <img src="{{ o.img }}" alt="{{ o.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.8s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.05)">
+          <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,42,.1) 30%,rgba(20,30,42,.8) 100%);pointer-events:none"></div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:8px"><span style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#EFB28C">{{ o.tag }}</span><span style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(26px,2.4vw,34px);line-height:1.05">{{ o.name }}</span><sc-if value="{{ o.desc }}" hint-placeholder-val="{{ false }}"><span style="margin-top:6px;max-width:40ch;font-weight:300;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.85)">{{ o.desc }}</span></sc-if></div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="journal" data-screen-label="11 Журнал" style="padding:0 clamp(20px,4vw,64px) clamp(64px,8vw,120px)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div data-reveal style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)"><h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4.4vw,62px);line-height:1;letter-spacing:-.01em">Журнал</h2><a href="#" style="display:inline-flex;align-items:center;gap:10px;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#4A6378;transition:gap .4s cubic-bezier(.2,.7,.2,1)" style-hover="gap:16px;color:#1C2A3A">Все статьи<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,40px)">
+      <sc-for list="{{ blog }}" as="b" hint-placeholder-count="3">
+        <a data-reveal href="#" style="display:flex;flex-direction:column;gap:16px;color:#1C2A3A">
+          <div style="aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:#E6DFD4"><img src="{{ b.img }}" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 1.8s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.05)"></div>
+          <p style="margin:0;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#4A6378">{{ b.cat }} · {{ b.date }}</p>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2vw,30px);line-height:1.15;text-wrap:pretty">{{ b.title }}</h3>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts" data-screen-label="12 Контакты" style="background:#fff;padding:clamp(56px,7vw,96px) clamp(20px,4vw,64px) 32px">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+    <div data-reveal style="display:flex;justify-content:center"><img src="img/juna-logo-dark.png" alt="Юна Aqua Life" style="height:72px;width:auto"></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;font-size:13.5px;line-height:1.7;color:#4A525C">
+      <div><p style="margin:0 0 10px;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#1C2A3A">Об отеле</p><p style="margin:0;text-wrap:pretty">Аква- и банный отель на 37 номеров в Эсто-Садке. Два бассейна, сауна и хаммам включены в проживание.</p></div>
+      <div style="display:flex;flex-direction:column"><p style="margin:0 0 10px;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#1C2A3A">Контакты</p><a href="tel:+79186195595" style="color:#4A525C">+7 918 619-55-95</a><a href="mailto:booking@sochi.juna-life.ru" style="color:#4A525C">booking@sochi.juna-life.ru</a><span>Эсто-Садок, ул. Переселенческая, 11/1</span></div>
+      <div style="display:flex;flex-direction:column"><p style="margin:0 0 10px;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#1C2A3A">Документы</p><a href="#" style="color:#4A525C">Политика конфиденциальности</a><a href="#" style="color:#4A525C">Правила проживания</a><a href="#" style="color:#4A525C">Договор оферты</a></div>
+      <form onSubmit="{{ preventSubmit }}" style="display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#1C2A3A">Рассылка</p><p style="margin:0;text-wrap:pretty">Редкие письма о сезонах, ценах и банных вечерах.</p><div style="display:flex;border:1px solid rgba(28,42,58,.2);border-radius:999px;overflow:hidden"><input type="email" placeholder="Ваш email" style="flex:1;min-width:0;border:0;padding:12px 18px;background:transparent;font:400 14px 'Jost',sans-serif;color:#1C2A3A;outline:none"><button type="submit" aria-label="Подписаться" style="width:46px;border:0;background:#EFB28C;color:#1C2A3A;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s" style-hover="background:#1C2A3A;color:#fff"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div></form>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(28,42,58,.12);font-size:11.5px;color:#5E6670"><span>© 2026 Юна Aqua Life · ООО «УСПЕХ»</span><div style="display:flex;gap:22px;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase"><a href="https://wa.me/79186195595" style="color:#1C2A3A">WhatsApp</a><a href="https://t.me/junasochi" style="color:#1C2A3A">Telegram</a><a href="https://yandex.ru/maps" style="color:#1C2A3A">Яндекс Карты</a></div></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;hero&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;winter&quot;,&quot;summer&quot;],&quot;default&quot;:&quot;winter&quot;,&quot;tsType&quot;:&quot;'winter' | 'summer'&quot;,&quot;section&quot;:&quot;Обложка&quot;}}">
+class Component extends DCLogic {
+  state = { w: 0, wFade: false, rs: 0, ra: 1, tb: 0, tbFade: false, q: 0, qFade: false, menuOpen: false, videoOpen: false, narrow: false };
+  _E = 'cubic-bezier(.2,.7,.2,1)';
+  _menu = [['#about', 'Отель'], ['#water', 'Вода и пар'], ['#rooms', 'Номера'], ['#offers', 'Предложения'], ['#contacts', 'Контакты']];
+  _water = [
+    { name: 'Крытый бассейн', img: 'img/pool-indoor.jpg', desc: '20 метров тёплой воды при 28–30 °C, глубина до 1,8 м. Открыт ежедневно с 7:00 до 22:00.' },
+    { name: 'Открытый бассейн', img: 'img/pool-night.jpg', desc: '32 °C круглый год: зимой над водой пар, вокруг снег и подсветка хребта.' },
+    { name: 'Хаммам', img: 'img/hammam.jpg', desc: 'Мягкий пар при 60° и тёплый мрамор — лучшее после склона.' },
+    { name: 'Сауна', img: 'img/banya.jpg', desc: 'Сухой жар 90°, обливная бочка и комната отдыха с травяным чаем.' },
+    { name: 'Джакузи', img: 'img/jacuzzi.jpg', desc: 'Гидромассаж с видом на внутренний двор; после 21:00 — только для вашей компании.' }
+  ];
+  _rooms = [
+    { name: 'Стандарт Premium', area: '20 м²', guests: 'до 2 гостей', price: '4 880', img: 'img/room-standard.jpg', desc: 'Компактный номер для двоих: на первом этаже — выход в сад, выше — балкон или лоджия с видом на горы.' },
+    { name: 'Стандарт с балконом', area: '25 м²', guests: 'до 3 гостей', price: '5 900', img: 'img/v-bed.jpg', desc: 'Просторнее на пять метров, с прихожей и дополнительным местом для ребёнка.' },
+    { name: 'Студио с кухней', area: '45 м²', guests: 'до 4 гостей', price: '9 800', img: 'img/v-balcony.jpg', desc: 'Полноценная кухня, обеденный стол и стиральная машина — для семьи на каникулы.' },
+    { name: 'Люкс', area: '45 м²', guests: 'до 5 гостей', price: '11 900', img: 'img/room-suite.jpg', desc: 'Две спальни и гостиная с креслами. Из каждой комнаты — выход на балкон с видом на хребет.' },
+    { name: 'Апартаменты', area: '75 м²', guests: 'до 6 гостей', price: '14 900', img: 'img/room-apart.jpg', desc: 'Две спальни и кухня-гостиная на всю семью. Балконы из каждой комнаты, тишина третьего этажа.' }
+  ];
+  _tabs = [
+    { n: '01', name: 'Аква-комплекс', title: 'Два бассейна, сауна и хаммам — включены', img: 'img/v-hammam.jpg', points: ['Ежедневно 7:00–22:00 без записи', 'Полотенца и халаты — без доплаты', 'После 21:00 — баня для своей компании'] },
+    { n: '02', name: 'Номера', title: '37 тихих номеров с видом на хребет', img: 'img/v-balcony.jpg', points: ['Балконы и лоджии на горы', 'Семейные студио с кухней', 'Тишина третьего этажа'] },
+    { n: '03', name: 'Завтраки', title: 'Утро у камина', img: 'img/bar-fireplace.jpg', points: ['Горячее на выбор, выпечка, сырники', 'С 7:30 в высокий сезон', 'Дети до 5 лет — бесплатно'] },
+    { n: '04', name: 'Спорт и йога', title: 'Зал и утренняя йога у воды', img: 'img/gym.jpg', points: ['Тренажёрный зал для гостей', 'Йога по утрам в сезон', 'Беговые маршруты от крыльца'] },
+    { n: '05', name: 'Красная Поляна', title: '900 метров до канатной дороги', img: 'img/cablecar.jpg', points: ['10 минут пешком до первой кабины', 'Роза Хутор — 4 км', 'Аэропорт Сочи — 45 минут'] }
+  ];
+  _social = [['img/v-bed.jpg', 4 / 5, -24], ['img/yacht.jpg', 4 / 3, 16], ['img/run.jpg', 3 / 4, -8], ['img/v-bar.jpg', 1, 28], ['img/valley.jpg', 4 / 3, 0], ['img/hammam.jpg', 1, 36], ['img/room-suite.jpg', 4 / 5, 12]];
+  _offers = [
+    { big: true, tag: 'После 21:00', name: 'Банный вечер', desc: 'Сауна, хаммам и джакузи только для вашей компании до шести человек, травяной чай с мёдом и халаты.', img: 'img/banya.jpg' },
+    { tag: 'От 3 ночей', name: 'После склона', img: 'img/cablecar.jpg' },
+    { tag: '7 ночей', name: 'Семейные каникулы', img: 'img/valley.jpg' },
+    { wide: true, tag: '2 ночи', name: 'Романтический уикенд', img: 'img/bar-fireplace.jpg' }
+  ];
+  _blog = [
+    { cat: 'Гид', date: '12 октября', title: 'Красная Поляна без лыж: чем заняться в межсезонье', img: 'img/valley.jpg' },
+    { cat: 'Баня', date: '2 октября', title: 'Банный ритуал: как чередовать пар и воду', img: 'img/v-hammam.jpg' },
+    { cat: 'Дорога', date: '24 сентября', title: 'Из аэропорта Сочи в Эсто-Садок за 50 минут', img: 'img/run.jpg' }
+  ];
+  _Q = [
+    ['Вечером сидеть в тёплом открытом бассейне, когда вокруг снег и горы в огнях, — ради этого стоило ехать. Крытый бассейн длинный, можно по-настоящему поплавать.', 'Анна и Сергей · январь'],
+    ['Брали апартаменты на семью из пяти человек: своя кухня, две спальни, дети весь день в бассейне. До канатки дошли пешком за десять минут.', 'Мария · март'],
+    ['Хаммам и сауна после катания — отдельное удовольствие. Номер небольшой, но чистый и тихий, с лоджией на горы.', 'Дмитрий · февраль']
+  ];
+  renderVals() {
+    const s = this.state, E = this._E, h = this.props.hero || 'winter', N = this._rooms.length;
+    const fade = (f, dy) => ({ opacity: f ? 0 : 1, transform: f ? 'translateY(' + dy + 'px)' : 'none', transition: 'opacity .38s ease, transform .55s ' + E });
+    const stack = (on) => ({ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: on ? 1 : 0, transform: on ? 'scale(1)' : 'scale(1.06)', transition: 'opacity .9s ease, transform 1.6s ' + E });
+    const dot = (on, dark) => ({ display: 'block', width: on ? '26px' : '7px', height: '7px', borderRadius: '999px', background: on ? (dark ? '#1C2A3A' : '#EFB28C') : (dark ? 'rgba(28,42,58,.25)' : 'rgba(255,255,255,.5)'), transition: 'width .5s ' + E + ', background .4s' });
+    const cards = [0, 1, 2, 3].map((k) => { const r = this._rooms[(s.rs + k) % N], on = k === s.ra; return { ...r, pick: () => { if (s.ra !== k) this.setState({ ra: k }); },
+      cardStyle: { position: 'relative', flex: (on ? '1.7' : '1') + ' 1 220px', minHeight: '440px', borderRadius: '6px', overflow: 'hidden', background: '#1C2A3A', color: '#fff', cursor: 'pointer', transition: 'flex-grow .8s ' + E },
+      nameStyle: { position: 'absolute', left: 0, right: 0, bottom: 0, padding: '24px', opacity: on ? 0 : 1, transition: 'opacity .4s ease' },
+      panelStyle: { position: 'absolute', inset: 0, padding: 'clamp(22px,2.4vw,32px)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', background: 'rgba(28,42,58,.93)', opacity: on ? 1 : 0, transition: 'opacity .6s ease ' + (on ? '.15s' : '0s'), pointerEvents: on ? 'auto' : 'none' } }; });
+    const soc = (arr, base) => arr.map(([img, ar, dy], i) => ({ img, style: { flex: '0 1 ' + (18 - (i % 2) * 3) + '%', minWidth: '96px', aspectRatio: String(ar), borderRadius: '4px', overflow: 'hidden', transform: 'translateY(' + dy + 'px)', background: '#E6DFD4' } }));
+    const tab = this._tabs[s.tb];
+    return {
+      heroWinter: h !== 'summer', heroSummer: h === 'summer',
+      menu: this._menu.map(([href, name], i) => ({ href, name, n: '0' + (i + 1), style: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '12px 0', borderBottom: '1px solid rgba(246,241,234,.12)', fontFamily: "'Cormorant Garamond',serif", fontWeight: 300, fontSize: 'clamp(40px,7vw,72px)', lineHeight: 1.05, color: '#F6F1EA', animation: 'up .9s ' + E + ' ' + (0.1 + i * 0.06).toFixed(2) + 's both' } })),
+      menuOpen: s.menuOpen, openMenu: () => this.setState({ menuOpen: true }), closeMenu: () => this.setState({ menuOpen: false }),
+      videoOpen: s.videoOpen, openVideo: () => this.setState({ videoOpen: true }), closeVideo: () => this.setState({ videoOpen: false }),
+      preventSubmit: (e) => e.preventDefault(),
+      submitBook: (e) => { e.preventDefault(); const f = new FormData(e.target); const t = encodeURIComponent(`Здравствуйте! Хочу забронировать номер с ${f.get('in')} по ${f.get('out')}, взрослых: ${f.get('ad')}, детей: ${f.get('ch')}.`); window.open('https://wa.me/79186195595?text=' + t, '_blank', 'noopener'); },
+      water: this._water.map((w, i) => { const on = i === s.w; return { ...w, active: on, pick: () => this._pickW(i), titleStyle: { display: 'block', fontFamily: "'Cormorant Garamond',serif", fontWeight: on ? 400 : 300, fontSize: on ? '32px' : '24px', lineHeight: 1.1, color: on ? '#1C2A3A' : '#8A939C', transition: 'color .4s ease, font-size .5s ' + E }, imgStyle: stack(on), dotStyle: dot(on, false) }; }),
+      waterPrev: () => this._pickW((s.w + 4) % 5), waterNext: () => this._pickW((s.w + 1) % 5),
+      rooms: cards, roomDots: this._rooms.map((_, i) => ({ style: dot(i === s.rs, true) })),
+      roomPrev: () => this.setState({ rs: (s.rs + N - 1) % N }), roomNext: () => this.setState({ rs: (s.rs + 1) % N }),
+      tab, tabFadeStyle: fade(s.tbFade, 10),
+      tabs: this._tabs.map((t, i) => { const on = i === s.tb; return { ...t, pick: () => this._pickTab(i), imgStyle: stack(on), style: { display: 'flex', alignItems: 'center', gap: '18px', width: '100%', textAlign: 'left', padding: '17px 22px', border: 0, borderRadius: '4px', cursor: 'pointer', font: "400 15px 'Jost',sans-serif", background: on ? '#EFB28C' : 'rgba(255,255,255,.96)', color: '#1C2A3A', transform: on ? 'translateX(8px)' : 'none', transition: 'background .5s ease, transform .55s ' + E } }; }),
+      socialA: soc(this._social.slice(0, 4)), socialB: soc(this._social.slice(4)),
+      qText: this._Q[s.q][0], qAuthor: this._Q[s.q][1], qStyle: fade(s.qFade, 8), qPrev: () => this._goQ(-1), qNext: () => this._goQ(1),
+      offersGridStyle: { display: 'grid', gridTemplateColumns: s.narrow ? '1fr' : '1.15fr 1fr 1fr', gap: 'clamp(14px,1.6vw,20px)' },
+      offers: this._offers.map((o) => ({ ...o, style: { position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'clamp(22px,2.4vw,32px)', minHeight: o.big ? '420px' : '260px', aspectRatio: o.big || s.narrow ? 'auto' : (o.wide ? '2.3/1' : '4/3'), gridRow: o.big && !s.narrow ? 'span 2' : 'auto', gridColumn: o.wide && !s.narrow ? 'span 2' : 'auto', borderRadius: '6px', overflow: 'hidden', background: '#1C2A3A', color: '#fff' } })),
+      blog: this._blog
+    };
+  }
+  _sw(fk, upd) { if (this._busy) return; this._busy = 1; this.setState({ [fk]: true }); setTimeout(() => { this.setState((st) => ({ ...upd(st), [fk]: false })); this._busy = 0; }, 380); }
+  _pickW(i) { if (i !== this.state.w) this.setState({ w: i }); }
+  _pickTab(i) { if (i !== this.state.tb) this._sw('tbFade', () => ({ tb: i })); }
+  _goQ(d) { this._sw('qFade', (st) => ({ q: (st.q + d + 3) % 3 })); }
+  componentDidUpdate() { document.body.style.overflow = (this.state.menuOpen || this.state.videoOpen) ? 'hidden' : ''; document.querySelectorAll('select[defaultValue]').forEach((sl) => { if (!sl.__dv) { sl.__dv = 1; sl.value = sl.getAttribute('defaultValue'); } }); }
+  componentDidMount() {
+    const E = this._E;
+    const io = new IntersectionObserver((es) => es.forEach((e) => { const el = e.target; if (!e.isIntersecting) { if (!el.__h && e.boundingClientRect.top > 0) { el.__h = 1; const d = el.dataset.delay || 0; el.style.opacity = '0'; el.style.transform = 'translateY(26px)'; el.style.transition = `opacity 1.2s ${E} ${d}ms, transform 1.2s ${E} ${d}ms`; } return; } el.style.opacity = '1'; el.style.transform = 'none'; io.unobserve(el); }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    const cio = new IntersectionObserver((es) => es.forEach((e) => { if (!e.isIntersecting) return; const el = e.target, im = el.querySelector('img'); el.style.clipPath = 'inset(0 0 0 0 round 6px)'; if (im) im.style.transform = 'scale(1)'; cio.unobserve(el); }), { threshold: 0.15 });
+    const scan = () => { document.querySelectorAll('[data-reveal]').forEach((el) => { if (!el.__rv) { el.__rv = 1; io.observe(el); } }); document.querySelectorAll('[data-clip]').forEach((el) => { if (el.__cl) return; el.__cl = 1; if (el.getBoundingClientRect().top < innerHeight * .85) return; const im = el.querySelector('img'); el.style.clipPath = 'inset(100% 0 0 0 round 6px)'; el.style.transition = 'clip-path 1.6s ' + E; if (im) { im.style.transform = 'scale(1.15)'; im.style.transition = 'transform 2.2s ' + E; } cio.observe(el); }); };
+    scan(); this._mo = new MutationObserver(scan); this._mo.observe(document.body, { childList: true, subtree: true });
+    let tick = 0;
+    this._onScroll = () => { if (tick) return; tick = requestAnimationFrame(() => { tick = 0; document.querySelectorAll('[data-px]').forEach((im) => { const r = im.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; const k = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; im.style.transform = 'translateY(' + (k * 60).toFixed(1) + 'px)'; }); }); };
+    addEventListener('scroll', this._onScroll, { passive: true }); this._onScroll();
+    this._fit = () => { const w = innerWidth, ph = document.getElementById('navPhone'); if (ph) ph.style.display = w < 720 ? 'none' : ''; const narrow = w < 820; if (narrow !== this.state.narrow) this.setState({ narrow }); };
+    addEventListener('resize', this._fit); this._fit();
+    this._onKey = (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false, videoOpen: false }); };
+    addEventListener('keydown', this._onKey);
+    this._qTimer = setInterval(() => this._goQ(1), 9000);
+    this.componentDidUpdate();
+  }
+  componentWillUnmount() { removeEventListener('scroll', this._onScroll); removeEventListener('resize', this._fit); removeEventListener('keydown', this._onKey); if (this._mo) this._mo.disconnect(); clearInterval(this._qTimer); document.body.style.overflow = ''; }
+}
+</script>
+</body>
+</html>

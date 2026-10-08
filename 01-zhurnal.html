@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Юна Aqua Life — Журнал</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F3EFE7;color:#1A1816;font-family:'Spectral',Georgia,serif;-webkit-font-smoothing:antialiased}
+a{color:#1A1816;text-decoration:none;transition:color .3s}a:hover{color:#8C2F23}
+*{box-sizing:border-box}img{display:block}input,select,button{font-family:inherit}
+::selection{background:#1A1816;color:#F3EFE7}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</helmet>
+
+<div id="peek" aria-hidden="true" style="position:fixed;left:0;top:0;z-index:90;width:320px;aspect-ratio:4/3;overflow:hidden;pointer-events:none;opacity:0;background:#E2DBCF;box-shadow:0 40px 70px -40px rgba(26,24,22,.6)"><img src="img/room-standard.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+
+<sc-if value="{{ runningHead }}" hint-placeholder-val="{{ true }}">
+  <div style="{{ barStyle }}">
+    <div style="max-width:1360px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:12px clamp(20px,4vw,56px)">
+      <a href="#top" style="font-family:'Noto Serif Display',serif;font-style:italic;font-size:22px;line-height:1">Юна</a>
+      <span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#57514A">{{ chap }}</span>
+      <a href="#booking" style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:2px">Забронировать</a>
+    </div>
+  </div>
+</sc-if>
+
+<header id="top" data-screen-label="01 Обложка" style="padding:0 clamp(20px,4vw,56px)">
+  <div style="max-width:1360px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px 24px;flex-wrap:wrap;padding:14px 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57514A">
+      <span>Эсто-Садок · Красная Поляна</span>
+      <span>Выпуск о тёплой воде · зима 2026/27</span>
+      <a href="tel:+79186195595">+7 918 619-55-95</a>
+    </div>
+    <div style="display:flex;justify-content:center;padding:clamp(22px,2.8vw,38px) 0;border-top:1px solid #1A1816">
+      <a href="#top" aria-label="Юна Aqua Life"><img src="img/juna-logo-dark.png" alt="Юна Aqua Life" style="height:clamp(64px,7.4vw,108px);width:auto"></a>
+    </div>
+    <nav aria-label="Разделы" style="display:flex;justify-content:center;align-items:baseline;flex-wrap:wrap;gap:6px clamp(18px,2.8vw,44px);padding:14px 0;border-top:4px double #1A1816;border-bottom:1px solid #1A1816;font-size:13px;letter-spacing:.18em;text-transform:uppercase">
+      <a href="#water"><span style="color:#8C2F23;margin-right:8px">I</span>Вода</a>
+      <a href="#rooms"><span style="color:#8C2F23;margin-right:8px">II</span>Номера</a>
+      <a href="#morning"><span style="color:#8C2F23;margin-right:8px">III</span>Утро</a>
+      <a href="#mountains"><span style="color:#8C2F23;margin-right:8px">IV</span>Горы</a>
+      <a href="#evening"><span style="color:#8C2F23;margin-right:8px">V</span>Вечер</a>
+      <a href="#booking" style="font-style:italic;font-size:17px;letter-spacing:.01em;text-transform:none">Забронировать →</a>
+    </nav>
+  </div>
+</header>
+
+<section data-chap="Тема номера" style="padding:clamp(40px,5vw,76px) clamp(20px,4vw,56px) clamp(72px,9vw,130px)">
+  <div style="max-width:1360px;margin:0 auto">
+    <p style="margin:0 0 clamp(18px,2vw,28px);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#8C2F23">Тема номера</p>
+    <h1 style="margin:0 0 clamp(40px,5vw,72px);font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(60px,11.4vw,184px);line-height:.92;letter-spacing:-.04em"><span style="display:block">Тёплая вода</span><span style="display:block;padding-left:clamp(36px,17vw,320px);font-style:italic">среди снега</span></h1>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,4.5vw,72px);align-items:flex-start">
+      <figure style="flex:2.2 1 540px;margin:0;min-width:0">
+        <div style="aspect-ratio:16/10;overflow:hidden;background:#E2DBCF">
+          <sc-if value="{{ heroWinter }}" hint-placeholder-val="{{ true }}"><img src="img/hero-winter.jpg" alt="Открытый бассейн отеля зимним вечером" style="width:100%;height:100%;object-fit:cover"></sc-if>
+          <sc-if value="{{ heroSummer }}" hint-placeholder-val="{{ false }}"><img src="img/hero-summer.jpg" alt="Открытый бассейн отеля летом" style="width:100%;height:100%;object-fit:cover"></sc-if>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;font-size:15px;font-style:italic;color:#57514A">
+          <sc-if value="{{ heroWinter }}" hint-placeholder-val="{{ true }}"><span>Открытый бассейн, 32 °C круглый год. Зимний вечер в Эсто-Садке.</span></sc-if>
+          <sc-if value="{{ heroSummer }}" hint-placeholder-val="{{ false }}"><span>Открытый бассейн летом: вода, горы и тишина двора.</span></sc-if>
+          <span style="flex:none;font-style:normal;font-size:12px;letter-spacing:.18em;text-transform:uppercase">Рис. 1</span>
+        </figcaption>
+      </figure>
+      <div style="flex:1 1 300px;min-width:0;padding-top:20px;border-top:1px solid #1A1816">
+        <p style="margin:0 0 28px;font-size:clamp(19px,1.45vw,22px);line-height:1.6;font-weight:300;text-wrap:pretty"><span style="float:left;font-family:'Noto Serif Display',serif;font-weight:400;font-size:4.4em;line-height:.8;margin:.08em .12em 0 0;color:#8C2F23">А</span>ква- и банный отель на тридцать семь номеров в Эсто-Садке. Два бассейна, хаммам и сауна включены в проживание, а до канатной дороги — десять минут пешком.</p>
+        <div style="clear:both;margin-bottom:32px;font-size:17px;border-top:1px solid rgba(26,24,22,.2)">
+          <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.2)"><span>Номеров</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">37</span></div>
+          <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.2)"><span>Бассейны</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">крытый и открытый</span></div>
+          <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.2)"><span>До канатной дороги</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">900 м</span></div>
+          <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.2)"><span>Из аэропорта Сочи</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">45 минут</span></div>
+        </div>
+        <a href="#booking" style="display:inline-flex;align-items:center;gap:14px;padding:17px 28px;background:#1A1816;color:#F3EFE7;font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:background .4s,gap .5s cubic-bezier(.2,.7,.2,1)" style-hover="background:#8C2F23;color:#F3EFE7;gap:20px">Забронировать номер<span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="02 Содержание" data-chap="Содержание" style="padding:0 clamp(20px,4vw,56px) clamp(80px,10vw,150px)">
+  <div style="max-width:1360px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px clamp(32px,5vw,80px)">
+    <h2 data-reveal style="flex:1 1 220px;margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(38px,3.8vw,56px);line-height:1;letter-spacing:-.02em">В этом<br><em>выпуске</em></h2>
+    <ol data-reveal data-delay="100" style="flex:3 1 620px;margin:0;padding:0;list-style:none;border-top:1px solid #1A1816">
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="5">
+        <li><a href="{{ t.href }}" data-peek="{{ t.img }}" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px clamp(16px,2.4vw,40px);padding:20px 0;border-bottom:1px solid rgba(26,24,22,.2);transition:padding .6s cubic-bezier(.2,.7,.2,1)" style-hover="padding-left:18px">
+          <span style="flex:none;width:48px;font-family:'Noto Serif Display',serif;font-size:22px;color:#8C2F23">{{ t.n }}</span>
+          <span style="flex:1 1 240px;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(28px,2.8vw,40px);line-height:1.1;letter-spacing:-.01em">{{ t.title }}</span>
+          <span style="flex:0 1 340px;font-style:italic;font-size:17px;line-height:1.45;color:#57514A">{{ t.dek }}</span>
+        </a></li>
+      </sc-for>
+    </ol>
+  </div>
+</section>
+
+<section id="water" data-screen-label="03 Вода и пар" data-chap="I · Вода и пар" style="padding:0 clamp(20px,4vw,56px) clamp(80px,10vw,150px)">
+  <div style="max-width:1360px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px clamp(24px,4vw,56px);padding-top:20px;border-top:1px solid #1A1816;margin-bottom:clamp(40px,5vw,72px)">
+      <span style="font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(96px,11vw,170px);line-height:.78;color:#8C2F23">I</span>
+      <div style="flex:1 1 320px"><p style="margin:0 0 12px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#57514A">Глава первая</p><h2 style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(48px,6vw,96px);line-height:.95;letter-spacing:-.035em">Вода <em>и пар</em></h2></div>
+      <p style="flex:0 1 380px;margin:0;font-style:italic;font-size:19px;line-height:1.5;color:#57514A;text-wrap:pretty">Два бассейна, хаммам и сауна — в стоимости номера. Без доплат и без записи.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,3vw,48px);align-items:flex-start;margin-bottom:clamp(48px,6vw,88px)">
+      <figure data-reveal style="flex:2.4 1 520px;margin:0;min-width:0"><div style="aspect-ratio:3/2;overflow:hidden;background:#E2DBCF"><img src="img/pool-indoor.jpg" alt="Крытый бассейн с панорамными окнами" style="width:100%;height:100%;object-fit:cover"></div><figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;font-size:15px;font-style:italic;color:#57514A"><span>Крытый бассейн: двадцать метров, 28–30 °C.</span><span style="flex:none;font-style:normal;font-size:12px;letter-spacing:.18em;text-transform:uppercase">Рис. 2</span></figcaption></figure>
+      <figure data-reveal data-delay="140" style="flex:1 1 260px;margin:clamp(0px,9vw,150px) 0 0;min-width:0"><div style="aspect-ratio:4/5;overflow:hidden;background:#E2DBCF"><img src="img/v-hammam.jpg" alt="Медная чаша в хаммаме" style="width:100%;height:100%;object-fit:cover"></div><figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;font-size:15px;font-style:italic;color:#57514A"><span>Хаммам, 60 °C.</span><span style="flex:none;font-style:normal;font-size:12px;letter-spacing:.18em;text-transform:uppercase">Рис. 3</span></figcaption></figure>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,80px);align-items:flex-start">
+      <div data-reveal style="flex:2 1 520px;min-width:0;columns:2 280px;column-gap:clamp(28px,3vw,48px);font-size:18px;line-height:1.7">
+        <p style="margin:0 0 1em;text-wrap:pretty"><span style="float:left;font-family:'Noto Serif Display',serif;font-size:4.2em;line-height:.8;margin:.08em .12em 0 0;color:#8C2F23">П</span>олного крытого аква-банного комплекса нет ни у одного из соседей по улице. У нас он входит в стоимость любого номера и открыт с семи утра до десяти вечера.</p>
+        <p style="margin:0 0 1em;text-wrap:pretty">Утро начинается в двадцатиметровом крытом бассейне, вечер заканчивается в открытом: тридцать два градуса круглый год, а зимой над водой стоит пар и падает снег.</p>
+        <p style="margin:0 0 1em;text-wrap:pretty">Между ними — хаммам с тёплым мрамором и сухой жар сауны с обливной бочкой. После девяти вечера баню можно забрать целиком: для своей компании до шести человек, с травяным чаем и мёдом.</p>
+      </div>
+      <aside data-reveal data-delay="120" style="flex:1 1 300px;min-width:0;padding:24px 26px 14px;background:#EAE4D9;font-size:17px">
+        <p style="margin:0 0 6px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8C2F23">Справка</p>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.15)"><span>Крытый бассейн</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">28–30 °C</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.15)"><span>Открытый бассейн</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">32 °C</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.15)"><span>Хаммам</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">60 °C</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.15)"><span>Сауна</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">90 °C</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px solid rgba(26,24,22,.15)"><span>Джакузи</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">вид во двор</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:11px 0"><span>Часы работы</span><span aria-hidden="true" style="flex:1;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="font-style:italic">7:00–22:00</span></div>
+      </aside>
+    </div>
+    <blockquote data-reveal style="margin:clamp(56px,7vw,110px) auto 0;max-width:20ch;text-align:center;font-family:'Noto Serif Display',serif;font-style:italic;font-weight:300;font-size:clamp(36px,4.6vw,68px);line-height:1.08;letter-spacing:-.025em;text-wrap:balance">«Зимой над открытой водой стоит пар, а вокруг падает снег»</blockquote>
+  </div>
+</section>
+
+<section id="rooms" data-screen-label="04 Номера" data-chap="II · Номера" style="padding:0 clamp(20px,4vw,56px) clamp(80px,10vw,150px)">
+  <div style="max-width:1360px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px clamp(24px,4vw,56px);padding-top:20px;border-top:1px solid #1A1816;margin-bottom:clamp(36px,4.5vw,64px)">
+      <span style="font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(96px,11vw,170px);line-height:.78;color:#8C2F23">II</span>
+      <div style="flex:1 1 320px"><p style="margin:0 0 12px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#57514A">Глава вторая</p><h2 style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(48px,6vw,96px);line-height:.95;letter-spacing:-.035em">Номера</h2></div>
+      <p style="flex:0 1 380px;margin:0;font-style:italic;font-size:19px;line-height:1.5;color:#57514A;text-wrap:pretty">От компактного стандарта для двоих до апартаментов на шестерых. В каждом — тишина и вид на хребет.</p>
+    </div>
+    <div data-reveal style="border-top:1px solid #1A1816">
+      <div aria-hidden="true" style="display:flex;flex-wrap:wrap;gap:8px 28px;padding:12px 0;border-bottom:1px solid rgba(26,24,22,.2);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#57514A"><span style="width:44px">№</span><span style="flex:1 1 260px">Категория</span><span style="width:80px">Площадь</span><span style="width:112px">Гостей</span><span style="width:150px;text-align:right">За ночь</span></div>
+      <sc-for list="{{ rooms }}" as="r" hint-placeholder-count="5">
+        <a href="#booking" data-peek="{{ r.img }}" onClick="{{ r.pick }}" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 28px;padding:24px 0;border-bottom:1px solid rgba(26,24,22,.2);color:#1A1816;transition:padding .6s cubic-bezier(.2,.7,.2,1),background .4s ease" style-hover="padding-left:20px;padding-right:20px;background:#EAE4D9;color:#1A1816">
+          <span style="width:44px;font-size:14px;letter-spacing:.12em;color:#8C2F23">{{ r.n }}</span>
+          <span style="flex:1 1 260px;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(30px,3.4vw,50px);line-height:1.05;letter-spacing:-.02em">{{ r.name }}</span>
+          <span style="width:80px;font-size:17px">{{ r.area }}</span>
+          <span style="width:112px;font-size:17px">{{ r.guests }}</span>
+          <span style="width:150px;text-align:right;font-style:italic;font-size:20px">от {{ r.price }} ₽</span>
+        </a>
+      </sc-for>
+    </div>
+    <p data-reveal style="margin:18px 0 0;font-size:15px;font-style:italic;color:#57514A">Указаны цены «от» — точная стоимость зависит от дат. Аква-комплекс включён в любую категорию.</p>
+  </div>
+</section>
+
+<section id="morning" data-screen-label="05 Утро у камина" data-chap="III · Утро у камина" style="background:#EAE4D9">
+  <div style="display:flex;flex-wrap:wrap;align-items:stretch">
+    <div style="position:relative;flex:1.25 1 520px;min-height:clamp(380px,46vw,720px);overflow:hidden;background:#D9D0C2"><img src="img/bar-fireplace.jpg" alt="Завтрак у камина с видом на горы" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+    <div style="flex:1 1 400px;min-width:0;padding:clamp(48px,6vw,100px) clamp(24px,5vw,84px);display:flex;flex-direction:column;justify-content:center">
+      <div data-reveal>
+        <span style="display:block;margin-bottom:22px;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(80px,8vw,130px);line-height:.78;color:#8C2F23">III</span>
+        <p style="margin:0 0 12px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#57514A">Глава третья</p>
+        <h2 style="margin:0 0 28px;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(46px,5vw,80px);line-height:.95;letter-spacing:-.035em">Утро <em>у камина</em></h2>
+        <p style="margin:0 0 1em;max-width:46ch;font-size:18px;line-height:1.7;text-wrap:pretty">Завтракаем у живого огня: горячее на выбор, домашняя выпечка, сырники. В высокий сезон столы накрывают с половины восьмого — чтобы успеть к первой кабине.</p>
+        <p style="margin:0 0 36px;max-width:46ch;font-size:18px;line-height:1.7;text-wrap:pretty">Детям до пяти лет завтрак бесплатно. Вечером у того же камина — чай с травами и мёдом.</p>
+        <div style="display:flex;align-items:flex-end;gap:22px">
+          <div style="flex:none;width:clamp(110px,10vw,150px);aspect-ratio:2/3;overflow:hidden;background:#D9D0C2"><img src="img/v-bar.jpg" alt="Кофе и мёд у камина" style="width:100%;height:100%;object-fit:cover"></div>
+          <p style="margin:0;font-family:'Noto Serif Display',serif;font-style:italic;font-weight:300;font-size:clamp(22px,1.9vw,28px);line-height:1.25;text-wrap:balance">«Успеть к первой кабине — и не торопиться с кофе»</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mountains" data-screen-label="06 Горы" data-chap="IV · Горы" style="padding:clamp(80px,10vw,150px) clamp(20px,4vw,56px)">
+  <div style="max-width:1360px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px clamp(24px,4vw,56px);padding-top:20px;border-top:1px solid #1A1816;margin-bottom:clamp(40px,5vw,72px)">
+      <span style="font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(96px,11vw,170px);line-height:.78;color:#8C2F23">IV</span>
+      <div style="flex:1 1 320px"><p style="margin:0 0 12px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#57514A">Глава четвёртая</p><h2 style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(48px,6vw,96px);line-height:.95;letter-spacing:-.035em">Горы</h2></div>
+      <p style="flex:0 1 380px;margin:0;font-style:italic;font-size:19px;line-height:1.5;color:#57514A;text-wrap:pretty">Эсто-Садок — тихая часть Красной Поляны, откуда до склонов можно дойти пешком.</p>
+    </div>
+    <figure data-reveal style="margin:0 0 clamp(40px,5vw,72px)"><div style="aspect-ratio:2.37/1;overflow:hidden;background:#E2DBCF"><img src="img/valley.jpg" alt="Вечерняя долина и огни посёлка" style="width:100%;height:100%;object-fit:cover"></div><figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;font-size:15px;font-style:italic;color:#57514A"><span>Вечер в долине: огни посёлка и снег на хребте.</span><span style="flex:none;font-style:normal;font-size:12px;letter-spacing:.18em;text-transform:uppercase">Рис. 6</span></figcaption></figure>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:32px clamp(28px,4vw,64px);margin-bottom:clamp(56px,7vw,100px)">
+      <div data-reveal style="padding-top:22px;border-top:1px solid #1A1816"><p style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(60px,6.4vw,104px);line-height:1;letter-spacing:-.04em">900<em style="font-size:.42em;margin-left:.15em">м</em></p><p style="margin:14px 0 0;font-size:18px;line-height:1.5">до канатной дороги — десять минут пешком</p></div>
+      <div data-reveal data-delay="100" style="padding-top:22px;border-top:1px solid #1A1816"><p style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(60px,6.4vw,104px);line-height:1;letter-spacing:-.04em">4<em style="font-size:.42em;margin-left:.15em">км</em></p><p style="margin:14px 0 0;font-size:18px;line-height:1.5">до Розы Хутор</p></div>
+      <div data-reveal data-delay="200" style="padding-top:22px;border-top:1px solid #1A1816"><p style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(60px,6.4vw,104px);line-height:1;letter-spacing:-.04em">45<em style="font-size:.42em;margin-left:.15em">мин</em></p><p style="margin:14px 0 0;font-size:18px;line-height:1.5">из аэропорта Сочи</p></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,3vw,48px);align-items:flex-start">
+      <figure data-reveal style="flex:1.4 1 420px;margin:0;min-width:0"><div style="aspect-ratio:3/2;overflow:hidden;background:#E2DBCF"><img src="img/cablecar.jpg" alt="Канатная дорога в ясный день" style="width:100%;height:100%;object-fit:cover"></div><figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;font-size:15px;font-style:italic;color:#57514A"><span>Зимой — первая кабина и катание до заката.</span><span style="flex:none;font-style:normal;font-size:12px;letter-spacing:.18em;text-transform:uppercase">Рис. 7</span></figcaption></figure>
+      <div data-reveal data-delay="120" style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:28px;padding-top:clamp(0px,4vw,60px)">
+        <p style="margin:0;font-size:18px;line-height:1.7;text-wrap:pretty"><span style="float:left;font-family:'Noto Serif Display',serif;font-size:4.2em;line-height:.8;margin:.08em .12em 0 0;color:#8C2F23">Л</span>етом — тропы прямо от крыльца, йога на рассвете и тренажёрный зал с панорамными окнами. А после любого маршрута — тёплая вода, которая ждёт до десяти вечера.</p>
+        <figure style="margin:0"><div style="aspect-ratio:2.37/1;overflow:hidden;background:#E2DBCF"><img src="img/yoga.jpg" alt="Утренняя йога на террасе" style="width:100%;height:100%;object-fit:cover"></div><figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;font-size:15px;font-style:italic;color:#57514A"><span>Йога по утрам в сезон.</span><span style="flex:none;font-style:normal;font-size:12px;letter-spacing:.18em;text-transform:uppercase">Рис. 8</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="evening" data-screen-label="07 Вечер" data-chap="V · Вечер" style="padding:0 clamp(20px,4vw,56px) clamp(80px,10vw,150px)">
+  <div style="max-width:1360px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px clamp(24px,4vw,56px);padding-top:20px;border-top:1px solid #1A1816;margin-bottom:clamp(40px,5vw,72px)">
+      <span style="font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(96px,11vw,170px);line-height:.78;color:#8C2F23">V</span>
+      <div style="flex:1 1 320px"><p style="margin:0 0 12px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#57514A">Глава пятая</p><h2 style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(48px,6vw,96px);line-height:.95;letter-spacing:-.035em">Вечер <em>и предложения</em></h2></div>
+      <p style="flex:0 1 380px;margin:0;font-style:italic;font-size:19px;line-height:1.5;color:#57514A;text-wrap:pretty">После девяти вечера баню можно забрать целиком — для своей компании.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,80px);align-items:flex-start">
+      <figure data-reveal style="flex:1 1 380px;margin:0;min-width:0"><div style="aspect-ratio:4/5;overflow:hidden;background:#E2DBCF"><img src="img/banya.jpg" alt="Банные веники и травяной чай" style="width:100%;height:100%;object-fit:cover"></div><figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;font-size:15px;font-style:italic;color:#57514A"><span>Комната отдыха: чай с травами и мёдом.</span><span style="flex:none;font-style:normal;font-size:12px;letter-spacing:.18em;text-transform:uppercase">Рис. 9</span></figcaption></figure>
+      <div data-reveal data-delay="120" style="flex:1.3 1 440px;min-width:0;border-top:1px solid #1A1816">
+        <sc-for list="{{ offers }}" as="o" hint-placeholder-count="4">
+          <a href="#booking" style="display:block;padding:26px 0 24px;border-bottom:1px solid rgba(26,24,22,.2);color:#1A1816;transition:padding .6s cubic-bezier(.2,.7,.2,1)" style-hover="padding-left:16px;color:#1A1816">
+            <span style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Noto Serif Display',serif;font-style:italic;font-weight:300;font-size:clamp(28px,2.8vw,42px);line-height:1.1;letter-spacing:-.015em">{{ o.name }}</span><span aria-hidden="true" style="flex:1;min-width:24px;border-bottom:1px dotted rgba(26,24,22,.5)"></span><span style="flex:none;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8C2F23">{{ o.term }}</span></span>
+            <span style="display:block;margin-top:10px;max-width:52ch;font-size:17px;line-height:1.6;color:#57514A;text-wrap:pretty">{{ o.desc }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="letters" data-screen-label="08 Письма гостей" data-chap="Письма гостей" style="background:#1A1816;color:#F3EFE7;padding:clamp(80px,10vw,150px) clamp(20px,4vw,56px)">
+  <div style="max-width:1360px;margin:0 auto">
+    <div data-reveal style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;padding-bottom:24px;border-bottom:1px solid rgba(243,239,231,.3);margin-bottom:clamp(40px,5vw,72px)"><h2 style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(48px,6vw,96px);line-height:.95;letter-spacing:-.035em">Письма <em>гостей</em></h2><span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,239,231,.75)">Яндекс Карты · 4,6 из 5</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:48px clamp(32px,4vw,64px)">
+      <sc-for list="{{ letters }}" as="l" hint-placeholder-count="3">
+        <figure data-reveal style="margin:0;display:flex;flex-direction:column;gap:22px">
+          <span aria-hidden="true" style="font-family:'Noto Serif Display',serif;font-size:96px;line-height:.5;height:40px;color:#C98B78">“</span>
+          <blockquote style="margin:0;font-family:'Noto Serif Display',serif;font-style:italic;font-weight:300;font-size:clamp(22px,1.9vw,27px);line-height:1.4;text-wrap:pretty">{{ l.text }}</blockquote>
+          <figcaption style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,239,231,.75)">{{ l.who }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="booking" data-screen-label="09 Бронирование" data-chap="Бронирование" style="padding:clamp(80px,10vw,150px) clamp(20px,4vw,56px)">
+  <div data-reveal style="max-width:1160px;margin:0 auto">
+    <p style="margin:0 0 clamp(24px,3vw,40px);padding-top:20px;border-top:1px solid #1A1816;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#8C2F23">Бронирование · ответим в WhatsApp</p>
+    <form onSubmit="{{ submit }}" aria-label="Запрос на бронирование">
+      <p style="margin:0;font-family:'Noto Serif Display',serif;font-weight:300;font-size:clamp(30px,3.7vw,56px);line-height:1.55;letter-spacing:-.015em;text-wrap:pretty">Мы приедем <input type="date" aria-label="Дата заезда" value="{{ fIn }}" onChange="{{ setIn }}" style="font:inherit;font-size:.8em;color:#8C2F23;background:transparent;border:0;border-bottom:1px solid #1A1816;border-radius:0;padding:0 2px;outline:none"> и уедем <input type="date" aria-label="Дата выезда" value="{{ fOut }}" onChange="{{ setOut }}" style="font:inherit;font-size:.8em;color:#8C2F23;background:transparent;border:0;border-bottom:1px solid #1A1816;border-radius:0;padding:0 2px;outline:none">. Взрослых — <select aria-label="Взрослые" value="{{ ad }}" onChange="{{ setAd }}" style="font:inherit;color:#8C2F23;background:transparent;border:0;border-bottom:1px solid #1A1816;border-radius:0;padding:0 4px;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select>, детей — <select aria-label="Дети" value="{{ ch }}" onChange="{{ setCh }}" style="font:inherit;color:#8C2F23;background:transparent;border:0;border-bottom:1px solid #1A1816;border-radius:0;padding:0 4px;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>. Категория — <select aria-label="Категория номера" value="{{ room }}" onChange="{{ setRoom }}" style="font:inherit;font-style:italic;color:#8C2F23;background:transparent;border:0;border-bottom:1px solid #1A1816;border-radius:0;padding:0 4px;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;max-width:100%"><option value="Стандарт Premium">Стандарт Premium</option><option value="Стандарт с балконом">Стандарт с балконом</option><option value="Студио с кухней">Студио с кухней</option><option value="Люкс">Люкс</option><option value="Апартаменты">Апартаменты</option></select>.</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px 36px;margin-top:clamp(36px,4vw,56px)">
+        <button type="submit" style="display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border:0;border-radius:0;background:#1A1816;color:#F3EFE7;font-size:13px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .4s,gap .5s cubic-bezier(.2,.7,.2,1)" style-hover="background:#8C2F23;gap:20px">Отправить запрос<span aria-hidden="true">→</span></button>
+        <p style="flex:1 1 300px;margin:0;font-size:16px;font-style:italic;line-height:1.55;color:#57514A">Администратор ответит с ценой на ваши даты. Сеанс хаммама — в подарок при прямом бронировании.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer id="contacts" data-screen-label="10 Выходные данные" data-chap="Выходные данные" style="padding:0 clamp(20px,4vw,56px) 36px">
+  <div style="max-width:1360px;margin:0 auto;border-top:4px double #1A1816;padding-top:clamp(40px,5vw,64px)">
+    <div style="display:flex;flex-wrap:wrap;gap:40px clamp(32px,4vw,64px);margin-bottom:clamp(40px,5vw,64px);font-size:16px;line-height:1.7">
+      <div style="flex:1.4 1 260px"><img src="img/juna-logo-dark.png" alt="Юна Aqua Life" style="height:76px;width:auto;margin-bottom:18px"><p style="margin:0;max-width:34ch;font-style:italic;color:#57514A;text-wrap:pretty">Аква- и банный отель на 37 номеров в Эсто-Садке, Красная Поляна.</p></div>
+      <div style="flex:1 1 200px;display:flex;flex-direction:column"><p style="margin:0 0 10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8C2F23">Адрес</p><span>Эсто-Садок,</span><span>ул. Переселенческая, 11/1</span><span style="color:#57514A">Ресепшен 9:00–22:00</span></div>
+      <div style="flex:1 1 200px;display:flex;flex-direction:column"><p style="margin:0 0 10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8C2F23">Связь</p><a href="tel:+79186195595">+7 918 619-55-95</a><a href="mailto:booking@sochi.juna-life.ru">booking@sochi.juna-life.ru</a><a href="https://t.me/junasochi">Telegram · @junasochi</a><a href="https://wa.me/79186195595">WhatsApp</a></div>
+      <div style="flex:1 1 200px;display:flex;flex-direction:column"><p style="margin:0 0 10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8C2F23">Документы</p><a href="#">Политика конфиденциальности</a><a href="#">Правила проживания</a><a href="#">Договор оферты</a></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding-top:18px;border-top:1px solid #1A1816;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#57514A"><span>© 2026 Юна Aqua Life · ООО «УСПЕХ»</span><span>Выпуск о тёплой воде · зима 2026/27</span></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;hero&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;winter&quot;,&quot;summer&quot;],&quot;default&quot;:&quot;winter&quot;,&quot;tsType&quot;:&quot;'winter' | 'summer'&quot;,&quot;section&quot;:&quot;Обложка&quot;},&quot;runningHead&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Навигация&quot;}}">
+class Component extends DCLogic {
+  state = { bar: false, chap: 'Тема номера', fIn: '2026-12-20', fOut: '2026-12-24', ad: '2', ch: '0', room: 'Люкс' };
+  _E = 'cubic-bezier(.2,.7,.2,1)';
+  _toc = [
+    ['#water', 'I', 'Вода и пар', 'Два бассейна, хаммам и сауна — в стоимости номера', 'img/pool-indoor.jpg'],
+    ['#rooms', 'II', 'Номера', 'Пять категорий: от стандарта до апартаментов', 'img/room-suite.jpg'],
+    ['#morning', 'III', 'Утро у камина', 'Завтрак у живого огня — до первой кабины', 'img/bar-fireplace.jpg'],
+    ['#mountains', 'IV', 'Горы', 'Канатная дорога в десяти минутах пешком', 'img/cablecar.jpg'],
+    ['#evening', 'V', 'Вечер', 'Банный вечер и предложения сезона', 'img/banya.jpg']
+  ];
+  _rooms = [
+    ['Стандарт Premium', '20 м²', 'до 2 гостей', '4 880', 'img/room-standard.jpg'],
+    ['Стандарт с балконом', '25 м²', 'до 3 гостей', '5 900', 'img/v-bed.jpg'],
+    ['Студио с кухней', '45 м²', 'до 4 гостей', '9 800', 'img/v-balcony.jpg'],
+    ['Люкс', '45 м²', 'до 5 гостей', '11 900', 'img/room-suite.jpg'],
+    ['Апартаменты', '75 м²', 'до 6 гостей', '14 900', 'img/room-apart.jpg']
+  ];
+  _offers = [
+    ['Банный вечер', 'после 21:00', 'Сауна, хаммам и джакузи только для вашей компании до шести человек. Травяной чай с мёдом, халаты.'],
+    ['После склона', 'от 3 ночей', 'Хаммам и сауна после катания, канатная дорога — в десяти минутах от двери.'],
+    ['Семейные каникулы', '7 ночей', 'Студио с кухней или апартаменты, а дети — весь день в тёплой воде.'],
+    ['Романтический уикенд', '2 ночи', 'Завтрак у камина и вечер в открытом бассейне под снегом.']
+  ];
+  _letters = [
+    ['Вечером сидеть в тёплом открытом бассейне, когда вокруг снег и горы в огнях, — ради этого стоило ехать. Крытый бассейн длинный, можно по-настоящему поплавать.', 'Анна и Сергей · январь'],
+    ['Брали апартаменты на семью из пяти человек: своя кухня, две спальни, дети весь день в бассейне. До канатки дошли пешком за десять минут.', 'Мария · март'],
+    ['Хаммам и сауна после катания — отдельное удовольствие. Номер небольшой, но чистый и тихий, с лоджией на горы.', 'Дмитрий · февраль']
+  ];
+  renderVals() {
+    const s = this.state, E = this._E, h = this.props.hero || 'winter';
+    const up = (k) => (e) => this.setState({ [k]: e.target.value });
+    const d = (v) => v.split('-').reverse().join('.');
+    return {
+      heroWinter: h !== 'summer', heroSummer: h === 'summer',
+      runningHead: this.props.runningHead !== false,
+      barStyle: { position: 'fixed', left: 0, right: 0, top: 0, zIndex: 80, background: 'rgba(243,239,231,.94)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', borderBottom: '1px solid #1A1816', transform: s.bar ? 'none' : 'translateY(-101%)', transition: 'transform .6s ' + E },
+      chap: s.chap,
+      toc: this._toc.map(([href, n, title, dek, img]) => ({ href, n, title, dek, img })),
+      rooms: this._rooms.map(([name, area, guests, price, img], i) => ({ name, area, guests, price, img, n: '0' + (i + 1), pick: () => this.setState({ room: name }) })),
+      offers: this._offers.map(([name, term, desc]) => ({ name, term, desc })),
+      letters: this._letters.map(([text, who]) => ({ text, who })),
+      fIn: s.fIn, fOut: s.fOut, ad: s.ad, ch: s.ch, room: s.room,
+      setIn: up('fIn'), setOut: up('fOut'), setAd: up('ad'), setCh: up('ch'), setRoom: up('room'),
+      submit: (e) => { e.preventDefault(); const t = encodeURIComponent(`Здравствуйте! Хотим приехать ${d(s.fIn)} и уехать ${d(s.fOut)}. Взрослых: ${s.ad}, детей: ${s.ch}. Категория: ${s.room}.`); window.open('https://wa.me/79186195595?text=' + t, '_blank', 'noopener'); }
+    };
+  }
+  componentDidMount() {
+    const E = this._E;
+    const io = new IntersectionObserver((es) => es.forEach((e) => { const el = e.target; if (!e.isIntersecting) { if (!el.__h && e.boundingClientRect.top > 0) { el.__h = 1; const dl = el.dataset.delay || 0; el.style.opacity = '0'; el.style.transform = 'translateY(22px)'; el.style.transition = `opacity 1.1s ${E} ${dl}ms, transform 1.1s ${E} ${dl}ms`; } return; } el.style.opacity = '1'; el.style.transform = 'none'; io.unobserve(el); }), { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    const scan = () => document.querySelectorAll('[data-reveal]').forEach((el) => { if (!el.__rv) { el.__rv = 1; io.observe(el); } });
+    scan(); this._mo = new MutationObserver(scan); this._mo.observe(document.body, { childList: true, subtree: true });
+    const peek = () => document.getElementById('peek');
+    const hide = () => { const p = peek(); if (p && p.__on) { p.__on = 0; p.style.opacity = '0'; } };
+    let tk = 0;
+    this._onScroll = () => { hide(); if (tk) return; tk = requestAnimationFrame(() => { tk = 0; const bar = scrollY > 560; let chap = 'Тема номера'; document.querySelectorAll('[data-chap]').forEach((el) => { if (el.getBoundingClientRect().top < 140) chap = el.dataset.chap; }); if (bar !== this.state.bar || chap !== this.state.chap) this.setState({ bar, chap }); }); };
+    addEventListener('scroll', this._onScroll, { passive: true }); this._onScroll();
+    this._onMove = (e) => {
+      const p = peek(); if (!p) return;
+      const t = e.target && e.target.closest ? e.target.closest('[data-peek]') : null;
+      if (!t || innerWidth < 900) { hide(); return; }
+      const im = p.querySelector('img'), src = t.getAttribute('data-peek');
+      if (im && im.getAttribute('src') !== src) im.setAttribute('src', src);
+      const x = Math.min(e.clientX + 36, innerWidth - 340), y = Math.max(16, Math.min(e.clientY - 120, innerHeight - 260)), tr = `translate(${x}px,${y}px) rotate(-2deg)`;
+      if (!p.__on) { p.__on = 1; p.style.transition = 'opacity .35s ease'; p.style.transform = tr; void p.offsetWidth; p.style.transition = 'opacity .35s ease, transform .7s ' + E; p.style.opacity = '1'; }
+      else p.style.transform = tr;
+    };
+    addEventListener('mousemove', this._onMove, { passive: true });
+  }
+  componentWillUnmount() { removeEventListener('scroll', this._onScroll); removeEventListener('mousemove', this._onMove); if (this._mo) this._mo.disconnect(); }
+}
+</script>
+</body>
+</html>

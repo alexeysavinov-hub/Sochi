@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Юна Aqua Life — Модерн</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:#E6E5E0;color:#141516;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#141516;text-decoration:none;transition:color .3s}a:hover{color:#1F4636}
+*{box-sizing:border-box}img{display:block}input,select,button{font-family:inherit}
+::selection{background:#1F4636;color:#F2F1ED}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</helmet>
+
+<sc-if value="{{ gridLines }}" hint-placeholder-val="{{ true }}">
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:-1;pointer-events:none;padding:0 clamp(20px,3vw,48px)">
+    <div style="max-width:1440px;height:100%;margin:0 auto;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(12px,1.6vw,24px)">
+      <span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span><span style="border-left:1px solid rgba(20,21,22,.06);border-right:1px solid rgba(20,21,22,.06)"></span>
+    </div>
+  </div>
+</sc-if>
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(230,229,224,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(20,21,22,.14);padding:0 clamp(20px,3vw,48px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px">
+    <a href="#top" aria-label="Юна Aqua Life"><img src="img/juna-logo-dark.png" alt="Юна Aqua Life" style="height:46px;width:auto"></a>
+    <nav id="dNav" aria-label="Разделы" style="display:flex;gap:clamp(16px,2.2vw,36px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase">
+      <a href="#water"><span style="color:#5A5D60">01</span> Вода</a>
+      <a href="#rooms"><span style="color:#5A5D60">02</span> Номера</a>
+      <a href="#schedule"><span style="color:#5A5D60">03</span> Распорядок</a>
+      <a href="#location"><span style="color:#5A5D60">04</span> Локация</a>
+      <a href="#offers"><span style="color:#5A5D60">05</span> Пакеты</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:20px">
+      <a id="dPhone" href="tel:+79186195595" style="font-family:'IBM Plex Mono',monospace;font-size:13px">+7 918 619-55-95</a>
+      <a href="#booking" style="padding:13px 20px;background:#141516;color:#F2F1ED;font-size:14px;font-weight:500;transition:background .3s" style-hover="background:#1F4636;color:#F2F1ED">Забронировать</a>
+    </div>
+  </div>
+</header>
+
+<section id="top" data-screen-label="01 Обложка" style="padding:0 clamp(20px,3vw,48px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(12px,1.6vw,24px);min-height:calc(100vh - 72px)">
+    <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:clamp(32px,5vh,64px) 0 clamp(28px,4vh,48px)">
+      <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;letter-spacing:.04em;text-transform:uppercase;color:#5A5D60">Аква- и банный отель<br>Эсто-Садок, Красная Поляна</p>
+      <h1 style="margin:0;font-weight:500;font-size:clamp(76px,10.4vw,176px);line-height:.86;letter-spacing:-.06em">Вода.<br>Пар.<br>Горы.</h1>
+      <div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #141516">
+          <div style="padding:16px 16px 18px 0;border-bottom:1px solid rgba(20,21,22,.14)"><p style="margin:0;font-weight:300;font-size:clamp(36px,3.2vw,52px);line-height:1;letter-spacing:-.045em">37</p><p style="margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">номеров</p></div>
+          <div style="padding:16px 0 18px 16px;border-bottom:1px solid rgba(20,21,22,.14);border-left:1px solid rgba(20,21,22,.14)"><p style="margin:0;font-weight:300;font-size:clamp(36px,3.2vw,52px);line-height:1;letter-spacing:-.045em">2</p><p style="margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">бассейна, хаммам и сауна</p></div>
+          <div style="padding:16px 16px 18px 0;border-bottom:1px solid rgba(20,21,22,.14)"><p style="margin:0;font-weight:300;font-size:clamp(36px,3.2vw,52px);line-height:1;letter-spacing:-.045em">900 м</p><p style="margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">до канатной дороги</p></div>
+          <div style="padding:16px 0 18px 16px;border-bottom:1px solid rgba(20,21,22,.14);border-left:1px solid rgba(20,21,22,.14)"><p style="margin:0;font-weight:300;font-size:clamp(36px,3.2vw,52px);line-height:1;letter-spacing:-.045em">45 мин</p><p style="margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">из аэропорта Сочи</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px">
+          <a href="#booking" style="display:inline-flex;align-items:center;gap:12px;padding:17px 26px;background:#141516;color:#F2F1ED;font-size:15px;font-weight:500;transition:background .3s,gap .45s cubic-bezier(.2,.7,.2,1)" style-hover="background:#1F4636;color:#F2F1ED;gap:18px">Забронировать<span aria-hidden="true">→</span></a>
+          <a href="#rooms" style="display:inline-flex;align-items:center;padding:16px 25px;border:1px solid #141516;font-size:15px;font-weight:500;transition:background .3s,color .3s" style-hover="background:#141516;color:#F2F1ED">Номера и цены</a>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;flex:1.15 1 480px;min-height:min(560px,70vh);margin:clamp(16px,2vw,24px) 0;overflow:hidden;background:#D5D4CF">
+      <sc-if value="{{ heroWinter }}" hint-placeholder-val="{{ true }}"><img src="img/hero-winter.jpg" alt="Открытый бассейн отеля зимним вечером" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 60%"></sc-if>
+      <sc-if value="{{ heroSummer }}" hint-placeholder-val="{{ false }}"><img src="img/hero-summer.jpg" alt="Открытый бассейн отеля летом" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 60%"></sc-if>
+      <div style="position:absolute;left:16px;bottom:16px;display:flex;flex-wrap:wrap;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase"><span style="padding:9px 12px;background:#F2F1ED;color:#141516">Открытый бассейн</span><span style="padding:9px 12px;background:#141516;color:#F2F1ED">32 °C круглый год</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="water" data-screen-label="02 Вода" style="padding:clamp(80px,10vw,150px) clamp(20px,3vw,48px) 0">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding-top:14px;border-top:1px solid #141516;margin-bottom:clamp(28px,3.5vw,48px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase"><span style="width:clamp(64px,8vw,120px)">01</span><span style="flex:1 1 200px">Аква-комплекс</span><span style="color:#5A5D60">Включено в проживание</span></div>
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:20px clamp(24px,3vw,48px);align-items:flex-end;margin-bottom:clamp(40px,5vw,72px)"><h2 style="flex:2 1 520px;margin:0;font-weight:500;font-size:clamp(42px,5.4vw,88px);line-height:.95;letter-spacing:-.05em;text-wrap:balance">Пять зон тёплой воды и пара</h2><p style="flex:1 1 300px;max-width:420px;margin:0;font-size:17px;line-height:1.55;color:#5A5D60;text-wrap:pretty">Ежедневно с 7:00 до 22:00 для всех гостей — без записи и доплат. Халаты и полотенца включены.</p></div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,3vw,48px);align-items:flex-start">
+      <div data-reveal style="flex:1.3 1 560px;min-width:0;border-top:1px solid #141516">
+        <div aria-hidden="true" style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:12px 16px;border-bottom:1px solid rgba(20,21,22,.14);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5A5D60"><span style="width:28px">№</span><span style="flex:1 1 200px">Зона</span><span style="width:120px">Цифра</span><span style="flex:1 1 220px">Детали</span></div>
+        <sc-for list="{{ rows }}" as="w" hint-placeholder-count="5">
+          <div onMouseEnter="{{ w.enter }}" onClick="{{ w.enter }}" style="{{ w.rowStyle }}">
+            <span style="width:28px;font-family:'IBM Plex Mono',monospace;font-size:12px">{{ w.n }}</span>
+            <span style="flex:1 1 200px;font-weight:500;font-size:clamp(22px,2vw,30px);letter-spacing:-.03em">{{ w.name }}</span>
+            <span style="width:120px;font-weight:300;font-size:clamp(28px,2.6vw,40px);line-height:1;letter-spacing:-.045em">{{ w.fig }}</span>
+            <span style="{{ w.noteStyle }}">{{ w.note }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div data-reveal data-delay="120" style="flex:1 1 400px;min-width:0;position:sticky;top:96px">
+        <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#D5D4CF"><sc-for list="{{ rows }}" as="w" hint-placeholder-count="1"><img src="{{ w.img }}" alt="{{ w.name }}" style="{{ w.imgStyle }}"></sc-for></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60"><span>{{ wName }}</span><span>{{ wN }} / 05</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rooms" data-screen-label="03 Номера" style="padding:clamp(80px,10vw,150px) clamp(20px,3vw,48px) 0">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding-top:14px;border-top:1px solid #141516;margin-bottom:clamp(28px,3.5vw,48px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase"><span style="width:clamp(64px,8vw,120px)">02</span><span style="flex:1 1 200px">Размещение</span><span style="color:#5A5D60">37 номеров</span></div>
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:20px clamp(24px,3vw,48px);align-items:flex-end;margin-bottom:clamp(32px,4vw,56px)"><h2 style="flex:2 1 520px;margin:0;font-weight:500;font-size:clamp(42px,5.4vw,88px);line-height:.95;letter-spacing:-.05em">Пять категорий —<br>от 20 до 75 м²</h2><div style="flex:1 1 300px;display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5"><button type="button" onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button></sc-for></div></div>
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:clamp(24px,3vw,48px);align-items:stretch">
+      <div style="position:relative;flex:1.5 1 560px;min-height:420px;overflow:hidden;background:#D5D4CF"><sc-for list="{{ roomImgs }}" as="ri" hint-placeholder-count="1"><img src="{{ ri.img }}" alt="{{ ri.name }}" style="{{ ri.style }}"></sc-for></div>
+      <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:28px">
+        <div><h3 style="margin:0 0 12px;font-weight:500;font-size:clamp(32px,3vw,48px);line-height:1;letter-spacing:-.045em">{{ roomName }}</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#5A5D60;text-wrap:pretty">{{ roomDesc }}</p></div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #141516;border-bottom:1px solid rgba(20,21,22,.14)">
+          <div style="padding:14px 12px 16px 0"><p style="margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:#5A5D60">Площадь</p><p style="margin:0;font-weight:300;font-size:clamp(26px,2.2vw,34px);line-height:1;letter-spacing:-.04em">{{ roomArea }}</p></div>
+          <div style="padding:14px 12px 16px;border-left:1px solid rgba(20,21,22,.14)"><p style="margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:#5A5D60">Гостей</p><p style="margin:0;font-weight:300;font-size:clamp(26px,2.2vw,34px);line-height:1;letter-spacing:-.04em">{{ roomGuests }}</p></div>
+          <div style="padding:14px 0 16px 12px;border-left:1px solid rgba(20,21,22,.14)"><p style="margin:0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:#5A5D60">Ночь, от</p><p style="margin:0;font-weight:300;font-size:clamp(26px,2.2vw,34px);line-height:1;letter-spacing:-.04em">{{ roomPrice }}</p></div>
+        </div>
+        <div>
+          <p style="margin:0 0 4px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:#5A5D60">Площадь в сравнении</p>
+          <sc-for list="{{ bars }}" as="b" hint-placeholder-count="5"><div style="display:flex;align-items:center;gap:12px;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase"><span style="{{ b.labelStyle }}">{{ b.label }}</span><div style="flex:1;height:8px;background:rgba(20,21,22,.06)"><div style="{{ b.style }}"></div></div><span style="width:52px;text-align:right">{{ b.val }}</span></div></sc-for>
+        </div>
+        <div style="margin-top:auto;padding:20px;background:#F2F1ED;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+          <div style="display:flex;align-items:center;gap:8px"><button type="button" onClick="{{ nMinus }}" aria-label="Меньше ночей" style="width:42px;height:42px;border:1px solid rgba(20,21,22,.3);background:transparent;color:#141516;font-size:18px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#141516;color:#F2F1ED">−</button><span style="min-width:92px;text-align:center;font-weight:500;font-size:17px">{{ nightsLabel }}</span><button type="button" onClick="{{ nPlus }}" aria-label="Больше ночей" style="width:42px;height:42px;border:1px solid rgba(20,21,22,.3);background:transparent;color:#141516;font-size:18px;cursor:pointer;transition:background .3s,color .3s" style-hover="background:#141516;color:#F2F1ED">+</button></div>
+          <div style="text-align:right"><p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5A5D60">{{ calcLine }}</p><p style="margin:4px 0 0;font-weight:500;font-size:28px;line-height:1;letter-spacing:-.035em">{{ calcTotal }}</p></div>
+          <a href="#booking" onClick="{{ askRoom }}" style="flex:1 1 100%;display:flex;justify-content:space-between;align-items:center;padding:15px 18px;background:#141516;color:#F2F1ED;font-size:15px;font-weight:500;transition:background .3s" style-hover="background:#1F4636;color:#F2F1ED">Запросить эти даты<span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule" data-screen-label="04 Распорядок" style="margin-top:clamp(80px,10vw,150px);padding:clamp(64px,8vw,120px) clamp(20px,3vw,48px);background:#F2F1ED">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding-top:14px;border-top:1px solid #141516;margin-bottom:clamp(28px,3.5vw,48px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase"><span style="width:clamp(64px,8vw,120px)">03</span><span style="flex:1 1 200px">Распорядок</span><span style="color:#1F4636">{{ nowLabel }}</span></div>
+    <h2 data-reveal style="margin:0 0 clamp(40px,5vw,64px);font-weight:500;font-size:clamp(42px,5.4vw,88px);line-height:.95;letter-spacing:-.05em">День по часам</h2>
+    <div data-reveal>
+      <div style="display:flex;gap:24px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A5D60"><span style="flex:0 0 clamp(150px,18vw,260px)"></span><div style="position:relative;flex:1;height:22px"><span style="position:absolute;left:0">00</span><span style="position:absolute;left:12.5%;transform:translateX(-50%)">03</span><span style="position:absolute;left:25%;transform:translateX(-50%)">06</span><span style="position:absolute;left:37.5%;transform:translateX(-50%)">09</span><span style="position:absolute;left:50%;transform:translateX(-50%)">12</span><span style="position:absolute;left:62.5%;transform:translateX(-50%)">15</span><span style="position:absolute;left:75%;transform:translateX(-50%)">18</span><span style="position:absolute;left:87.5%;transform:translateX(-50%)">21</span><span style="position:absolute;right:0">24</span></div></div>
+      <sc-for list="{{ sched }}" as="sc" hint-placeholder-count="4">
+        <div style="display:flex;align-items:center;gap:24px;padding:18px 0;border-top:1px solid rgba(20,21,22,.14)">
+          <div style="flex:0 0 clamp(150px,18vw,260px);min-width:0"><p style="margin:0;font-weight:500;font-size:18px;letter-spacing:-.02em">{{ sc.name }}</p><p style="margin:4px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5A5D60">{{ sc.note }}</p></div>
+          <div style="position:relative;flex:1;height:40px;background:repeating-linear-gradient(90deg,rgba(20,21,22,.1) 0 1px,transparent 1px 12.5%)"><div style="{{ sc.barStyle }}"></div><div style="{{ nowStyle }}"></div></div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="location" data-screen-label="05 Локация" style="padding:clamp(80px,10vw,150px) clamp(20px,3vw,48px) 0">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding-top:14px;border-top:1px solid #141516;margin-bottom:clamp(28px,3.5vw,48px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase"><span style="width:clamp(64px,8vw,120px)">04</span><span style="flex:1 1 200px">Локация</span><span style="color:#5A5D60">Эсто-Садок, Красная Поляна</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,3vw,48px);align-items:stretch">
+      <div data-reveal style="position:relative;flex:1.3 1 520px;min-height:440px;overflow:hidden;background:#D5D4CF"><img src="img/cablecar.jpg" alt="Канатная дорога Красной Поляны" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+      <div data-reveal data-delay="120" style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column">
+        <h2 style="margin:0 0 clamp(28px,3.5vw,48px);font-weight:500;font-size:clamp(38px,4.2vw,68px);line-height:.98;letter-spacing:-.05em">Десять минут пешком до канатной дороги</h2>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 0;border-top:1px solid #141516"><span style="font-weight:300;font-size:clamp(48px,5vw,84px);line-height:1;letter-spacing:-.055em">900 м</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;text-align:right;color:#5A5D60">Канатная дорога<br>10 минут пешком</span></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 0;border-top:1px solid rgba(20,21,22,.14)"><span style="font-weight:300;font-size:clamp(48px,5vw,84px);line-height:1;letter-spacing:-.055em">4 км</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;text-align:right;color:#5A5D60">Роза Хутор</span></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 0;border-top:1px solid rgba(20,21,22,.14);border-bottom:1px solid rgba(20,21,22,.14)"><span style="font-weight:300;font-size:clamp(48px,5vw,84px);line-height:1;letter-spacing:-.055em">45 мин</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;text-align:right;color:#5A5D60">Аэропорт Сочи</span></div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:auto;padding-top:24px;font-family:'IBM Plex Mono',monospace;font-size:13px"><span>ул. Переселенческая, 11/1</span><a href="https://yandex.ru/maps" style="text-decoration:underline;text-underline-offset:4px">Яндекс Карты ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offers" data-screen-label="06 Пакеты" style="padding:clamp(80px,10vw,150px) clamp(20px,3vw,48px) 0">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding-top:14px;border-top:1px solid #141516;margin-bottom:clamp(28px,3.5vw,48px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase"><span style="width:clamp(64px,8vw,120px)">05</span><span style="flex:1 1 200px">Пакеты</span><span style="color:#5A5D60">Сеанс хаммама в подарок при прямом бронировании</span></div>
+    <h2 data-reveal style="margin:0 0 clamp(36px,4.5vw,64px);font-weight:500;font-size:clamp(42px,5.4vw,88px);line-height:.95;letter-spacing:-.05em">Пакеты сезона</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(12px,1.6vw,24px)">
+      <sc-for list="{{ offers }}" as="o" hint-placeholder-count="4">
+        <a data-reveal href="#booking" style="display:flex;flex-direction:column;gap:14px;color:#141516">
+          <div style="aspect-ratio:4/3;overflow:hidden;background:#D5D4CF"><img src="{{ o.img }}" alt="{{ o.name }}" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .7s ease,transform 1.6s cubic-bezier(.2,.7,.2,1)" style-hover="filter:grayscale(0);transform:scale(1.03)"></div>
+          <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">{{ o.code }} · {{ o.term }}</p>
+          <h3 style="margin:0;font-weight:500;font-size:26px;line-height:1.05;letter-spacing:-.035em">{{ o.name }}</h3>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#5A5D60;text-wrap:pretty">{{ o.desc }}</p>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" data-screen-label="07 Отзывы" style="padding:clamp(80px,10vw,150px) clamp(20px,3vw,48px)">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding-top:14px;border-top:1px solid #141516;margin-bottom:clamp(28px,3.5vw,48px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase"><span style="width:clamp(64px,8vw,120px)">06</span><span style="flex:1 1 200px">Отзывы</span><span style="color:#5A5D60">Яндекс Карты</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:40px clamp(24px,3vw,48px);align-items:flex-start">
+      <div data-reveal style="flex:1 1 320px"><p style="margin:0;font-weight:300;font-size:clamp(120px,15vw,240px);line-height:.8;letter-spacing:-.08em">4,6</p><p style="margin:18px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">из 5 · средняя оценка гостей</p></div>
+      <div data-reveal data-delay="120" style="flex:2 1 560px;min-width:0">
+        <figure style="margin:0;display:flex;flex-wrap:wrap;gap:12px 32px;padding:22px 0;border-top:1px solid #141516"><blockquote style="flex:1 1 380px;margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.5;text-wrap:pretty">Вечером сидеть в тёплом открытом бассейне, когда вокруг снег и горы в огнях, — ради этого стоило ехать. Крытый бассейн длинный, можно по-настоящему поплавать.</blockquote><figcaption style="flex:0 0 160px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">Анна и Сергей<br>январь</figcaption></figure>
+        <figure style="margin:0;display:flex;flex-wrap:wrap;gap:12px 32px;padding:22px 0;border-top:1px solid rgba(20,21,22,.14)"><blockquote style="flex:1 1 380px;margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.5;text-wrap:pretty">Брали апартаменты на семью из пяти человек: своя кухня, две спальни, дети весь день в бассейне. До канатки дошли пешком за десять минут.</blockquote><figcaption style="flex:0 0 160px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">Мария<br>март</figcaption></figure>
+        <figure style="margin:0;display:flex;flex-wrap:wrap;gap:12px 32px;padding:22px 0;border-top:1px solid rgba(20,21,22,.14);border-bottom:1px solid rgba(20,21,22,.14)"><blockquote style="flex:1 1 380px;margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.5;text-wrap:pretty">Хаммам и сауна после катания — отдельное удовольствие. Номер небольшой, но чистый и тихий, с лоджией на горы.</blockquote><figcaption style="flex:0 0 160px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60">Дмитрий<br>февраль</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking" data-screen-label="08 Бронирование" style="background:#141516;color:#F2F1ED;padding:clamp(72px,9vw,130px) clamp(20px,3vw,48px)">
+  <div style="max-width:1440px;margin:0 auto">
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding-top:14px;border-top:1px solid rgba(242,241,237,.5);margin-bottom:clamp(28px,3.5vw,48px);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase"><span style="width:clamp(64px,8vw,120px)">07</span><span style="flex:1 1 200px">Бронирование</span><span style="color:rgba(242,241,237,.7)">Ответ в WhatsApp</span></div>
+    <h2 data-reveal style="margin:0 0 clamp(36px,4.5vw,56px);font-weight:500;font-size:clamp(42px,5.4vw,88px);line-height:.95;letter-spacing:-.05em">Запрос на ваши даты</h2>
+    <form data-reveal onSubmit="{{ submit }}" aria-label="Бронирование">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:1px;background:rgba(242,241,237,.2);border:1px solid rgba(242,241,237,.2)">
+        <label style="display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:#141516;cursor:pointer"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:rgba(242,241,237,.7)">Заезд</span><input type="date" value="{{ fIn }}" onChange="{{ setIn }}" style="border:0;padding:0;background:transparent;color:#F2F1ED;font:400 18px 'Onest',sans-serif;outline:none;color-scheme:dark;width:100%;min-width:0"></label>
+        <label style="display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:#141516;cursor:pointer"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:rgba(242,241,237,.7)">Выезд</span><input type="date" value="{{ fOut }}" onChange="{{ setOut }}" style="border:0;padding:0;background:transparent;color:#F2F1ED;font:400 18px 'Onest',sans-serif;outline:none;color-scheme:dark;width:100%;min-width:0"></label>
+        <label style="display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:#141516;cursor:pointer"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:rgba(242,241,237,.7)">Взрослые</span><select value="{{ ad }}" onChange="{{ setAd }}" style="border:0;padding:0;background:transparent;color:#F2F1ED;font:400 18px 'Onest',sans-serif;outline:none;color-scheme:dark;width:100%;cursor:pointer"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
+        <label style="display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:#141516;cursor:pointer"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:rgba(242,241,237,.7)">Дети</span><select value="{{ ch }}" onChange="{{ setCh }}" style="border:0;padding:0;background:transparent;color:#F2F1ED;font:400 18px 'Onest',sans-serif;outline:none;color-scheme:dark;width:100%;cursor:pointer"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
+        <label style="display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:#141516;cursor:pointer"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:rgba(242,241,237,.7)">Категория</span><select value="{{ broom }}" onChange="{{ setBroom }}" style="border:0;padding:0;background:transparent;color:#F2F1ED;font:400 18px 'Onest',sans-serif;outline:none;color-scheme:dark;width:100%;cursor:pointer"><option value="Стандарт Premium">Стандарт Premium</option><option value="Стандарт с балконом">Стандарт с балконом</option><option value="Студио с кухней">Студио с кухней</option><option value="Люкс">Люкс</option><option value="Апартаменты">Апартаменты</option></select></label>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 32px;padding:22px 0 0">
+        <div><p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:rgba(242,241,237,.7)">{{ estLine }}</p><p style="margin:6px 0 0;font-weight:300;font-size:clamp(34px,3.4vw,52px);line-height:1;letter-spacing:-.045em">{{ estTotal }}</p></div>
+        <button type="submit" style="display:inline-flex;align-items:center;gap:14px;padding:20px 30px;border:0;background:#2F6A52;color:#F2F1ED;font-size:16px;font-weight:500;cursor:pointer;transition:background .3s,gap .45s cubic-bezier(.2,.7,.2,1)" style-hover="background:#F2F1ED;color:#141516;gap:20px">Отправить в WhatsApp<span aria-hidden="true">→</span></button>
+      </div>
+      <p style="margin:16px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(242,241,237,.7)">Оценка предварительная — точную цену на даты подтвердит администратор.</p>
+    </form>
+  </div>
+</section>
+
+<footer id="contacts" data-screen-label="09 Контакты" style="padding:clamp(56px,7vw,96px) clamp(20px,3vw,48px) 28px">
+  <div style="max-width:1440px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:36px clamp(12px,1.6vw,24px);padding-bottom:clamp(40px,5vw,64px);font-size:15px;line-height:1.7">
+      <div><img src="img/juna-logo-dark.png" alt="Юна Aqua Life" style="height:60px;width:auto;margin-bottom:14px"><p style="margin:0;color:#5A5D60;max-width:30ch">Аква- и банный отель на 37 номеров в Эсто-Садке.</p></div>
+      <div style="display:flex;flex-direction:column"><p style="margin:0 0 10px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:#5A5D60">Адрес</p><span>Эсто-Садок,</span><span>ул. Переселенческая, 11/1</span><span>Ресепшен 9:00–22:00</span></div>
+      <div style="display:flex;flex-direction:column"><p style="margin:0 0 10px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:#5A5D60">Связь</p><a href="tel:+79186195595">+7 918 619-55-95</a><a href="mailto:booking@sochi.juna-life.ru">booking@sochi.juna-life.ru</a><a href="https://t.me/junasochi">Telegram @junasochi</a></div>
+      <div style="display:flex;flex-direction:column"><p style="margin:0 0 10px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:#5A5D60">Документы</p><a href="#">Политика конфиденциальности</a><a href="#">Правила проживания</a><a href="#">Договор оферты</a></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding-top:18px;border-top:1px solid #141516;font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;color:#5A5D60"><span>© 2026 Юна Aqua Life · ООО «УСПЕХ»</span><div style="display:flex;gap:22px"><a href="https://wa.me/79186195595">WhatsApp</a><a href="https://t.me/junasochi">Telegram</a><a href="https://yandex.ru/maps">Яндекс Карты</a></div></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;hero&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;winter&quot;,&quot;summer&quot;],&quot;default&quot;:&quot;winter&quot;,&quot;tsType&quot;:&quot;'winter' | 'summer'&quot;,&quot;section&quot;:&quot;Обложка&quot;},&quot;gridLines&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Сетка&quot;}}">
+class Component extends DCLogic {
+  state = { w: 0, r: 3, nights: 3, fIn: '2026-12-20', fOut: '2026-12-24', ad: '2', ch: '0', broom: 'Люкс', tick: 0 };
+  _E = 'cubic-bezier(.2,.7,.2,1)';
+  _rooms = [
+    { name: 'Стандарт Premium', short: 'Стандарт', area: 20, guests: 2, price: 4880, img: 'img/room-standard.jpg', desc: 'Компактный номер для двоих: на первом этаже — выход в сад, выше — балкон или лоджия с видом на горы.' },
+    { name: 'Стандарт с балконом', short: 'С балконом', area: 25, guests: 3, price: 5900, img: 'img/v-bed.jpg', desc: 'Просторнее на пять метров, с прихожей и дополнительным местом для ребёнка.' },
+    { name: 'Студио с кухней', short: 'Студио', area: 45, guests: 4, price: 9800, img: 'img/v-balcony.jpg', desc: 'Полноценная кухня, обеденный стол и стиральная машина — для семьи на каникулы.' },
+    { name: 'Люкс', short: 'Люкс', area: 45, guests: 5, price: 11900, img: 'img/room-suite.jpg', desc: 'Две спальни и гостиная с креслами. Из каждой комнаты — выход на балкон с видом на хребет.' },
+    { name: 'Апартаменты', short: 'Апартаменты', area: 75, guests: 6, price: 14900, img: 'img/room-apart.jpg', desc: 'Две спальни и кухня-гостиная на всю семью. Балконы из каждой комнаты, тишина третьего этажа.' }
+  ];
+  _offers = [
+    ['P/01', 'после 21:00', 'Банный вечер', 'Сауна, хаммам и джакузи только для вашей компании до шести человек.', 'img/banya.jpg'],
+    ['P/02', 'от 3 ночей', 'После склона', 'Хаммам и сауна после катания, канатная дорога — в 900 метрах.', 'img/cablecar.jpg'],
+    ['P/03', '7 ночей', 'Семейные каникулы', 'Студио с кухней или апартаменты, дети весь день в тёплой воде.', 'img/valley.jpg'],
+    ['P/04', '2 ночи', 'Романтический уикенд', 'Завтрак у камина и вечер в открытом бассейне.', 'img/bar-fireplace.jpg']
+  ];
+  _fmt(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00A0'); }
+  _pl(n, a, b, c) { const m = n % 10, h = n % 100; return m === 1 && h !== 11 ? a : (m >= 2 && m <= 4 && (h < 10 || h >= 20) ? b : c); }
+  renderVals() {
+    const s = this.state, E = this._E, hs = this.props.hero === 'summer', R = this._rooms[s.r];
+    const up = (k) => (e) => this.setState({ [k]: e.target.value });
+    const stack = (on) => ({ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: on ? 1 : 0, transform: on ? 'scale(1)' : 'scale(1.05)', transition: 'opacity .8s ease, transform 1.6s ' + E });
+    const water = [
+      ['Крытый бассейн', '20 м', '28–30 °C, глубина до 1,8 м', 'img/pool-indoor.jpg'],
+      ['Открытый бассейн', '32 °C', 'круглый год, зимой — пар над водой', hs ? 'img/hero-winter.jpg' : 'img/hero-summer.jpg'],
+      ['Хаммам', '60 °C', 'мягкий пар и тёплый мрамор', 'img/hammam.jpg'],
+      ['Сауна', '90 °C', 'сухой жар, обливная бочка, травяной чай', 'img/banya.jpg'],
+      ['Джакузи', '21:00', 'после — только для вашей компании', 'img/jacuzzi.jpg']
+    ];
+    const msk = new Date(Date.now() + 3 * 3600e3), hh = msk.getUTCHours(), mm = msk.getUTCMinutes(), nowH = hh + mm / 60;
+    const bar = (a, b, kind) => kind === 'dot'
+      ? { position: 'absolute', top: '50%', left: (a / 24 * 100) + '%', width: '14px', height: '14px', borderRadius: '50%', background: '#1F4636', transform: 'translate(-50%,-50%)' }
+      : { position: 'absolute', top: '50%', height: '12px', transform: 'translateY(-50%)', left: (a / 24 * 100) + '%', width: ((b - a) / 24 * 100) + '%', background: kind === 'fade' ? 'linear-gradient(90deg,#1F4636,rgba(31,70,54,0))' : (kind === 'light' ? 'rgba(20,21,22,.35)' : '#1F4636') };
+    const pB = this._rooms.find((r) => r.name === s.broom) || R;
+    const n = Math.round((Date.parse(s.fOut) - Date.parse(s.fIn)) / 864e5);
+    return {
+      heroWinter: !hs, heroSummer: hs, gridLines: this.props.gridLines !== false,
+      rows: water.map(([name, fig, note, img], i) => { const on = i === s.w; return { n: '0' + (i + 1), name, fig, note, img, enter: () => { if (this.state.w !== i) this.setState({ w: i }); }, imgStyle: stack(on),
+        rowStyle: { display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '6px 24px', padding: '22px 16px', borderBottom: '1px solid rgba(20,21,22,.14)', background: on ? '#141516' : 'transparent', color: on ? '#F2F1ED' : '#141516', cursor: 'default', transition: 'background .45s ease, color .45s ease' },
+        noteStyle: { flex: '1 1 220px', fontFamily: "'IBM Plex Mono',monospace", fontSize: '13px', lineHeight: 1.5, color: on ? 'rgba(242,241,237,.78)' : '#5A5D60', transition: 'color .45s ease' } }; }),
+      wName: water[s.w][0], wN: '0' + (s.w + 1),
+      tabs: this._rooms.map((r, i) => { const on = i === s.r; return { label: r.short, pick: () => this.setState({ r: i }), style: { padding: '12px 16px', border: '1px solid ' + (on ? '#141516' : 'rgba(20,21,22,.25)'), background: on ? '#141516' : 'transparent', color: on ? '#F2F1ED' : '#141516', fontFamily: "'IBM Plex Mono',monospace", fontSize: '12px', letterSpacing: '.04em', textTransform: 'uppercase', cursor: 'pointer', transition: 'background .35s, color .35s, border-color .35s' } }; }),
+      roomImgs: this._rooms.map((r, i) => ({ img: r.img, name: r.name, style: stack(i === s.r) })),
+      roomName: R.name, roomDesc: R.desc, roomArea: R.area + ' м²', roomGuests: 'до ' + R.guests, roomPrice: this._fmt(R.price) + ' ₽',
+      bars: this._rooms.map((r, i) => ({ label: r.short, val: r.area + ' м²', labelStyle: { width: '96px', flex: 'none', color: i === s.r ? '#141516' : '#5A5D60' }, style: { height: '100%', width: (r.area / 75 * 100) + '%', background: i === s.r ? '#1F4636' : 'rgba(20,21,22,.2)', transition: 'background .4s ease' } })),
+      nightsLabel: s.nights + ' ' + this._pl(s.nights, 'ночь', 'ночи', 'ночей'),
+      nMinus: () => this.setState({ nights: Math.max(1, s.nights - 1) }), nPlus: () => this.setState({ nights: Math.min(21, s.nights + 1) }),
+      calcLine: s.nights + ' × ' + this._fmt(R.price) + ' ₽', calcTotal: this._fmt(R.price * s.nights) + ' ₽',
+      askRoom: () => { const a = new Date(Date.parse(s.fIn) + s.nights * 864e5).toISOString().slice(0, 10); this.setState({ broom: R.name, fOut: a }); },
+      nowLabel: 'Сейчас в Сочи · ' + String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0'),
+      nowStyle: { position: 'absolute', top: '-10px', bottom: '-10px', left: (nowH / 24 * 100) + '%', width: '1px', background: '#C2452F' },
+      sched: [
+        ['Аква-комплекс', 'бассейны, хаммам, сауна · 7:00–22:00', bar(7, 22, 'solid')],
+        ['Завтрак у камина', 'с 7:30 в высокий сезон', bar(7.5, 0, 'dot')],
+        ['Ресепшен', '9:00–22:00', bar(9, 22, 'light')],
+        ['Баня для своих', 'после 21:00 · до 6 человек', bar(21, 24, 'fade')]
+      ].map(([name, note, barStyle]) => ({ name, note, barStyle })),
+      offers: this._offers.map(([code, term, name, desc, img]) => ({ code, term, name, desc, img })),
+      fIn: s.fIn, fOut: s.fOut, ad: s.ad, ch: s.ch, broom: s.broom,
+      setIn: up('fIn'), setOut: up('fOut'), setAd: up('ad'), setCh: up('ch'), setBroom: up('broom'),
+      estLine: n > 0 ? n + ' ' + this._pl(n, 'ночь', 'ночи', 'ночей') + ' · ' + pB.name : 'Проверьте даты',
+      estTotal: n > 0 ? '≈ ' + this._fmt(pB.price * n) + ' ₽' : '—',
+      submit: (e) => { e.preventDefault(); const d = (v) => v.split('-').reverse().join('.'); const t = encodeURIComponent(`Здравствуйте! Хочу забронировать «${s.broom}» с ${d(s.fIn)} по ${d(s.fOut)}. Взрослых: ${s.ad}, детей: ${s.ch}.`); window.open('https://wa.me/79186195595?text=' + t, '_blank', 'noopener'); }
+    };
+  }
+  componentDidMount() {
+    const E = this._E;
+    const io = new IntersectionObserver((es) => es.forEach((e) => { const el = e.target; if (!e.isIntersecting) { if (!el.__h && e.boundingClientRect.top > 0) { el.__h = 1; const dl = el.dataset.delay || 0; el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = `opacity 1s ${E} ${dl}ms, transform 1s ${E} ${dl}ms`; } return; } el.style.opacity = '1'; el.style.transform = 'none'; io.unobserve(el); }), { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    const scan = () => document.querySelectorAll('[data-reveal]').forEach((el) => { if (!el.__rv) { el.__rv = 1; io.observe(el); } });
+    scan(); this._mo = new MutationObserver(scan); this._mo.observe(document.body, { childList: true, subtree: true });
+    this._fit = () => { const w = innerWidth, nv = document.getElementById('dNav'), ph = document.getElementById('dPhone'); if (nv) nv.style.display = w < 1080 ? 'none' : ''; if (ph) ph.style.display = w < 720 ? 'none' : ''; };
+    addEventListener('resize', this._fit); this._fit();
+    this._clock = setInterval(() => this.setState((st) => ({ tick: st.tick + 1 })), 30000);
+  }
+  componentWillUnmount() { removeEventListener('resize', this._fit); if (this._mo) this._mo.disconnect(); clearInterval(this._clock); }
+}
+</script>
+</body>
+</html>
